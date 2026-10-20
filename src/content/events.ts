@@ -17,57 +17,32 @@ export const events = [
     start: "2025-01-25T17:30:00Z",
     end: "2025-01-25T21:30:00Z",
     image: "events-at-the-rhynd-38",
-    description: [
-      {
-        text: "A gastronomic Burns evening at the Rhynd Café, cooked by our head chef Jack Baldwin, all by candlelight."
-      },
-      {
-        text: "Burns Night with a twist!"
-      },
-      {
-        text: "There will be champagne on arrival with two canapés, followed by a banquet-style, four-course dinner of starter, main , pudding and petit fours with a nightcap. There will be a wide selection of wines, beers and spirits to buy on the night to accompany dinner."
-      },
-      {
-        heading: "Example menu (subject to change)"
-      },
-      {
-        text: "Canapés"
-      },
-      {
-        list: [
-          "Braised venison tartlet with a potato crumb",
-          "East Neuk Kiln House smoked salmon roulade on a sourdough crostini",
-          "Cumbrae oyster with a yuzu mignonette and dill oil"
-        ]
-      },
-      {
-        text: "Starter"
-      },
-      {
-        list: [
-          "Roast beetroot and pickled apple whipped crowdie with candied walnuts, chicory and a lemon vinaigrette"
-        ]
-      },
-      {
-        text: "Main"
-      },
-      {
-        list: [
-          "Haggis, neeps and tatties with a Drambuie cream sauce and pickled neeps"
-        ]
-      },
-      {
-        text: "Pudding"
-      },
-      {
-        list: [
-          "Tipsy Laird Scottish trifle"
-        ]
-      },
-      {
-        text: "Selection of Scottish cheese and whisky to finish"
-      }
+    about: [
+      "A gastronomic Burns evening at the Rhynd Café, cooked by our head chef Jack Baldwin, all by candlelight.",
+      "Burns Night with a twist!",
+      "There will be champagne on arrival with two canapés, followed by a banquet-style, four-course dinner of starter, main , pudding and petit fours with a nightcap. There will be a wide selection of wines, beers and spirits to buy on the night to accompany dinner.",
+      "**Example menu (subject to change)**",
+      [
+        "Canapés",
+        "· Braised venison tartlet with a potato crumb",
+        "· East Neuk Kiln House smoked salmon roulade on a sourdough crostini",
+        "· Cumbrae oyster with a yuzu mignonette and dill oil"
+      ],
+      [
+        "Starter",
+        "· Roast beetroot and pickled apple whipped crowdie with candied walnuts, chicory and a lemon vinaigrette"
+      ],
+      [
+        "Main",
+        "· Haggis, neeps and tatties with a Drambuie cream sauce and pickled neeps"
+      ],
+      [
+        "Pudding",
+        "· Tipsy Laird Scottish trifle"
+      ],
+      "Selection of Scottish cheese and whisky to finish"
     ],
+    preview: 397,
     tickets: []
   },
   {
@@ -81,53 +56,35 @@ export const events = [
     start: "2025-04-18T17:30:00+01:00",
     end: "2025-04-18T21:30:00+01:00",
     image: "post-burn-s-night-making-our-own-haggis-and-s-02",
-    description: [
-      {
-        text: "A gastronomic evening of farm-to-fork dining in the Rhynd Café, cooked by our head chef Jack Baldwin, all by candlelight."
-      },
-      {
-        text: "Menu (subject to change)"
-      },
-      {
-        text: "Canapés"
-      },
-      {
-        text: "Brown-crab tartelette with a dulse seaweed and a cucumber gel"
-      },
-      {
-        text: "Cumbrae oyster with a blood orange dressing and pickled samphire"
-      },
-      {
-        text: "Wildflower spring roll with a nam jim sauce"
-      },
-      {
-        text: "Starter"
-      },
-      {
-        text: "Craigie wood pigeon with a beetroot fondant braised leg faggot, charred chicory, red-vein sorrel and a port reduction"
-      },
-      {
-        text: "Mains"
-      },
-      {
-        text: "Stuffed saddle of lamb with Denhead Farm asparagus, morel mushrooms, pommes Anna and a lamb sauce"
-      },
-      {
-        text: "Dessert"
-      },
-      {
-        text: "Rhubarb tart with chamomile crème pâtissière, hazelnut tuille, Tayport gin and rhubarb"
-      },
-      {
-        text: "sorbet"
-      },
-      {
-        text: "Coffee and petit fours to follow"
-      },
-      {
-        text: "There will be champagne on arrival with two canapés, followed by a banquet-style, four-course dinner of starter, main , pudding and petit fours with a nightcap. There will be a wide selection of wines, beers and spirits to buy on the night to accompany dinner."
-      }
+    about: [
+      "A gastronomic evening of farm-to-fork dining in the Rhynd Café, cooked by our head chef Jack Baldwin, all by candlelight.",
+      "Menu (subject to change)",
+      [
+        "Canapés",
+        "",
+        "Brown-crab tartelette with a dulse seaweed and a cucumber gel",
+        "Cumbrae oyster with a blood orange dressing and pickled samphire",
+        "Wildflower spring roll with a nam jim sauce",
+        "",
+        "Starter",
+        "",
+        "Craigie wood pigeon with a beetroot fondant braised leg faggot, charred chicory, red-vein sorrel and a port reduction",
+        "",
+        "Mains",
+        "",
+        "Stuffed saddle of lamb with Denhead Farm asparagus, morel mushrooms, pommes Anna and a lamb sauce",
+        "",
+        "Dessert",
+        "",
+        "Rhubarb tart with chamomile crème pâtissière, hazelnut tuille, Tayport gin and rhubarb",
+        "sorbet",
+        "",
+        "Coffee and petit fours to follow",
+        ""
+      ],
+      "There will be champagne on arrival with two canapés, followed by a banquet-style, four-course dinner of starter, main , pudding and petit fours with a nightcap. There will be a wide selection of wines, beers and spirits to buy on the night to accompany dinner."
     ],
+    preview: 237,
     tickets: []
   },
   {
@@ -141,53 +98,37 @@ export const events = [
     start: "2025-10-17T18:00:00+01:00",
     end: "2025-10-17T22:00:00+01:00",
     image: "post-burn-s-night-making-our-own-haggis-and-s-02",
-    description: [
+    about: [
+      "Hosted by candlelight in the upstairs of the café, our chef's table dinners are intimate fine-dining experiences where our head chef Jack Baldwin heroes local produce.",
+      "Guests will be served canapés and champagne before dinner, and Jack will talk through each course before it is served. It's all about local produce, cooked beautifully.",
       {
-        text: "Hosted by candlelight in the upstairs of the café, our chef's table dinners are intimate fine-dining experiences where our head chef Jack Baldwin heroes local produce."
+        image: "post-burn-s-night-making-our-own-haggis-and-s-01"
       },
-      {
-        text: "Guests will be served canapés and champagne before dinner, and Jack will talk through each course before it is served. It's all about local produce, cooked beautifully."
-      },
-      {
-        text: "Example menu"
-      },
-      {
-        text: "Canapés"
-      },
-      {
-        text: "Pig's head terrine with apricots and pistachios."
-      },
-      {
-        text: "Courgette and ham velouté with chive oil."
-      },
-      {
-        text: "Braised pork shoulder, apple purée and pork rind crostini."
-      },
-      {
-        text: "Starter"
-      },
-      {
-        text: "Carbonara of salsify and our in-house-cured guanciale."
-      },
-      {
-        text: "Main"
-      },
-      {
-        text: "Duo of pork: Roast pork loin and confit smoked belly served with Mum's roast potatoes, honey-glazed carrots, pork-dripping parsnips, poached sprouts and a parsnip purée. All served with a selection of bread sauce, cranberry sauce, apple sauce and gravy."
-      },
-      {
-        text: "Pudding"
-      },
-      {
-        text: "Pork fat chocolate ganache, whipped hazelnut praline, chocolate tuille and hokey pokey ice cream."
-      },
-      {
-        text: "To finish"
-      },
-      {
-        text: "Cheese board and port."
-      }
+      "*Example menu*",
+      [
+        "*Canapés*",
+        "*Pig's head terrine with apricots and pistachios.*",
+        "*Courgette and ham velouté with chive oil.*",
+        "*Braised pork shoulder, apple purée and pork rind crostini.*"
+      ],
+      [
+        "*Starter*",
+        "*Carbonara of salsify and our in-house-cured guanciale.*"
+      ],
+      [
+        "*Main*",
+        "*Duo of pork: Roast pork loin and confit smoked belly served with Mum's roast potatoes, honey-glazed carrots, pork-dripping parsnips, poached sprouts and a parsnip purée. All served with a selection of bread sauce, cranberry sauce, apple sauce and gravy.*"
+      ],
+      [
+        "*Pudding*",
+        "*Pork fat chocolate ganache, whipped hazelnut praline, chocolate tuille and hokey pokey ice cream.*"
+      ],
+      [
+        "*To finish*",
+        "*Cheese board and port.*"
+      ]
     ],
+    preview: 344,
     tickets: []
   },
   {
@@ -201,53 +142,37 @@ export const events = [
     start: "2025-11-28T18:00:00Z",
     end: "2025-11-28T22:00:00Z",
     image: "post-burn-s-night-making-our-own-haggis-and-s-02",
-    description: [
+    about: [
+      "Hosted by candlelight in the upstairs of the café, our chef's table dinners are intimate fine-dining experiences where our head chef Jack Baldwin heroes local produce.",
+      "Guests will be served canapés and champagne before dinner, and Jack will talk through each course before it is served. It's all about local produce, cooked beautifully.",
       {
-        text: "Hosted by candlelight in the upstairs of the café, our chef's table dinners are intimate fine-dining experiences where our head chef Jack Baldwin heroes local produce."
+        image: "post-burn-s-night-making-our-own-haggis-and-s-01"
       },
-      {
-        text: "Guests will be served canapés and champagne before dinner, and Jack will talk through each course before it is served. It's all about local produce, cooked beautifully."
-      },
-      {
-        text: "Example menu"
-      },
-      {
-        text: "Canapés"
-      },
-      {
-        text: "Pig's head terrine with apricots and pistachios."
-      },
-      {
-        text: "Courgette and ham velouté with chive oil."
-      },
-      {
-        text: "Braised pork shoulder, apple purée and pork rind crostini."
-      },
-      {
-        text: "Starter"
-      },
-      {
-        text: "Carbonara of salsify and our in-house-cured guanciale."
-      },
-      {
-        text: "Main"
-      },
-      {
-        text: "Duo of pork: Roast pork loin and confit smoked belly served with Mum's roast potatoes, honey-glazed carrots, pork-dripping parsnips, poached sprouts and a parsnip purée. All served with a selection of bread sauce, cranberry sauce, apple sauce and gravy."
-      },
-      {
-        text: "Pudding"
-      },
-      {
-        text: "Pork fat chocolate ganache, whipped hazelnut praline, chocolate tuille and hokey pokey ice cream."
-      },
-      {
-        text: "To finish"
-      },
-      {
-        text: "Cheese board and port."
-      }
+      "*Example menu*",
+      [
+        "*Canapés*",
+        "*Pig's head terrine with apricots and pistachios.*",
+        "*Courgette and ham velouté with chive oil.*",
+        "*Braised pork shoulder, apple purée and pork rind crostini.*"
+      ],
+      [
+        "*Starter*",
+        "*Carbonara of salsify and our in-house-cured guanciale.*"
+      ],
+      [
+        "*Main*",
+        "*Duo of pork: Roast pork loin and confit smoked belly served with Mum's roast potatoes, honey-glazed carrots, pork-dripping parsnips, poached sprouts and a parsnip purée. All served with a selection of bread sauce, cranberry sauce, apple sauce and gravy.*"
+      ],
+      [
+        "*Pudding*",
+        "*Pork fat chocolate ganache, whipped hazelnut praline, chocolate tuille and hokey pokey ice cream.*"
+      ],
+      [
+        "*To finish*",
+        "*Cheese board and port.*"
+      ]
     ],
+    preview: 344,
     tickets: []
   },
   {
@@ -261,53 +186,37 @@ export const events = [
     start: "2026-02-14T18:00:00Z",
     end: "2026-02-14T22:00:00Z",
     image: "post-burn-s-night-making-our-own-haggis-and-s-02",
-    description: [
+    about: [
+      "Hosted by candlelight in the upstairs of the café, our chef's table dinners are intimate fine-dining experiences where our head chef Jack Baldwin heroes local produce.",
+      "Guests will be served canapés and champagne before dinner, and Jack will talk through each course before it is served. It's all about local produce, cooked beautifully.",
       {
-        text: "Hosted by candlelight in the upstairs of the café, our chef's table dinners are intimate fine-dining experiences where our head chef Jack Baldwin heroes local produce."
+        image: "post-burn-s-night-making-our-own-haggis-and-s-01"
       },
-      {
-        text: "Guests will be served canapés and champagne before dinner, and Jack will talk through each course before it is served. It's all about local produce, cooked beautifully."
-      },
-      {
-        text: "Example menu"
-      },
-      {
-        text: "Canapés"
-      },
-      {
-        text: "Pig's head terrine with apricots and pistachios."
-      },
-      {
-        text: "Courgette and ham velouté with chive oil."
-      },
-      {
-        text: "Braised pork shoulder, apple purée and pork rind crostini."
-      },
-      {
-        text: "Starter"
-      },
-      {
-        text: "Carbonara of salsify and our in-house-cured guanciale."
-      },
-      {
-        text: "Main"
-      },
-      {
-        text: "Duo of pork: Roast pork loin and confit smoked belly served with Mum's roast potatoes, honey-glazed carrots, pork-dripping parsnips, poached sprouts and a parsnip purée. All served with a selection of bread sauce, cranberry sauce, apple sauce and gravy."
-      },
-      {
-        text: "Pudding"
-      },
-      {
-        text: "Pork fat chocolate ganache, whipped hazelnut praline, chocolate tuille and hokey pokey ice cream."
-      },
-      {
-        text: "To finish"
-      },
-      {
-        text: "Cheese board and port."
-      }
+      "*Example menu*",
+      [
+        "*Canapés*",
+        "*Pig's head terrine with apricots and pistachios.*",
+        "*Courgette and ham velouté with chive oil.*",
+        "*Braised pork shoulder, apple purée and pork rind crostini.*"
+      ],
+      [
+        "*Starter*",
+        "*Carbonara of salsify and our in-house-cured guanciale.*"
+      ],
+      [
+        "*Main*",
+        "*Duo of pork: Roast pork loin and confit smoked belly served with Mum's roast potatoes, honey-glazed carrots, pork-dripping parsnips, poached sprouts and a parsnip purée. All served with a selection of bread sauce, cranberry sauce, apple sauce and gravy.*"
+      ],
+      [
+        "*Pudding*",
+        "*Pork fat chocolate ganache, whipped hazelnut praline, chocolate tuille and hokey pokey ice cream.*"
+      ],
+      [
+        "*To finish*",
+        "*Cheese board and port.*"
+      ]
     ],
+    preview: 344,
     tickets: []
   },
   {
@@ -321,53 +230,37 @@ export const events = [
     start: "2026-03-20T18:00:00Z",
     end: "2026-03-20T22:00:00Z",
     image: "post-burn-s-night-making-our-own-haggis-and-s-02",
-    description: [
+    about: [
+      "Hosted by candlelight in the upstairs of the café, our chef's table dinners are intimate fine-dining experiences where our head chef Jack Baldwin heroes local produce.",
+      "Guests will be served canapés and champagne before dinner, and Jack will talk through each course before it is served. It's all about local produce, cooked beautifully.",
       {
-        text: "Hosted by candlelight in the upstairs of the café, our chef's table dinners are intimate fine-dining experiences where our head chef Jack Baldwin heroes local produce."
+        image: "post-burn-s-night-making-our-own-haggis-and-s-01"
       },
-      {
-        text: "Guests will be served canapés and champagne before dinner, and Jack will talk through each course before it is served. It's all about local produce, cooked beautifully."
-      },
-      {
-        text: "Example menu"
-      },
-      {
-        text: "Canapés"
-      },
-      {
-        text: "Pig's head terrine with apricots and pistachios."
-      },
-      {
-        text: "Courgette and ham velouté with chive oil."
-      },
-      {
-        text: "Braised pork shoulder, apple purée and pork rind crostini."
-      },
-      {
-        text: "Starter"
-      },
-      {
-        text: "Carbonara of salsify and our in-house-cured guanciale."
-      },
-      {
-        text: "Main"
-      },
-      {
-        text: "Duo of pork: Roast pork loin and confit smoked belly served with Mum's roast potatoes, honey-glazed carrots, pork-dripping parsnips, poached sprouts and a parsnip purée. All served with a selection of bread sauce, cranberry sauce, apple sauce and gravy."
-      },
-      {
-        text: "Pudding"
-      },
-      {
-        text: "Pork fat chocolate ganache, whipped hazelnut praline, chocolate tuille and hokey pokey ice cream."
-      },
-      {
-        text: "To finish"
-      },
-      {
-        text: "Cheese board and port."
-      }
+      "*Example menu*",
+      [
+        "*Canapés*",
+        "*Pig's head terrine with apricots and pistachios.*",
+        "*Courgette and ham velouté with chive oil.*",
+        "*Braised pork shoulder, apple purée and pork rind crostini.*"
+      ],
+      [
+        "*Starter*",
+        "*Carbonara of salsify and our in-house-cured guanciale.*"
+      ],
+      [
+        "*Main*",
+        "*Duo of pork: Roast pork loin and confit smoked belly served with Mum's roast potatoes, honey-glazed carrots, pork-dripping parsnips, poached sprouts and a parsnip purée. All served with a selection of bread sauce, cranberry sauce, apple sauce and gravy.*"
+      ],
+      [
+        "*Pudding*",
+        "*Pork fat chocolate ganache, whipped hazelnut praline, chocolate tuille and hokey pokey ice cream.*"
+      ],
+      [
+        "*To finish*",
+        "*Cheese board and port.*"
+      ]
     ],
+    preview: 344,
     tickets: []
   },
   {
@@ -380,19 +273,11 @@ export const events = [
     start: "2026-09-11T15:30:00+01:00",
     end: "2026-09-11T21:00:00+01:00",
     image: "event-wine-safari-and-forest-feast-12",
-    description: [
-      {
-        text: "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer."
-      },
-      {
-        text: "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level."
-      },
-      {
-        text: "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm."
-      },
-      {
-        text: "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
-      }
+    about: [
+      "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer.",
+      "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level.",
+      "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm.",
+      "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
     ],
     tickets: []
   },
@@ -407,23 +292,14 @@ export const events = [
     start: "2026-11-14T18:00:00Z",
     end: "2026-11-14T22:00:00Z",
     image: "post-burn-s-night-making-our-own-haggis-and-s-02",
-    description: [
-      {
-        text: "From root to leaf, the luxury leftovers"
-      },
-      {
-        text: "UK supermarkets reject up to 4.5 million tonnes of fresh fruit and vegetables every year because they don’t meet the right standards for shape, size and appearance. A University of Edinburgh study revealed that over a third of farmed produce never gets past suppliers. The leftovers? They’re ploughed back in, used for animal feed or sent off to anaerobic digestion plants."
-      },
-      {
-        text: "For this season of chef’s table dinners in the Rhynd’s Loft we’re shining a spotlight on the rejects. What the supermarkets don’t want, we’re going to turn into a fine-dining masterpiece that heroes our amazing local produce."
-      },
-      {
-        text: "Head chef Jack Baldwin will take you on a culinary journey of Fife’s greatest produce via canapés and a four-course dinner. Hosted by candlelight, these chef’s table dinners are not to be missed."
-      },
-      {
-        text: "Let’s celebrate the rejects, the ones that don’t conform. Life comes in different shapes and sizes, and we’re here to see hero them all."
-      }
+    about: [
+      "From root to leaf, the luxury leftovers",
+      "UK supermarkets reject up to 4.5 million tonnes of fresh fruit and vegetables every year because they don’t meet the right standards for shape, size and appearance. A University of Edinburgh study revealed that over a third of farmed produce never gets past suppliers. The leftovers? They’re ploughed back in, used for animal feed or sent off to anaerobic digestion plants.",
+      "For this season of chef’s table dinners in the Rhynd’s Loft we’re shining a spotlight on the rejects. What the supermarkets don’t want, we’re going to turn into a fine-dining masterpiece that heroes our amazing local produce.",
+      "Head chef Jack Baldwin will take you on a culinary journey of Fife’s greatest produce via canapés and a four-course dinner. Hosted by candlelight, these chef’s table dinners are not to be missed.",
+      "Let’s celebrate the rejects, the ones that don’t conform. Life comes in different shapes and sizes, and we’re here to see hero them all."
     ],
+    preview: 758,
     tickets: [
       {
         name: "General Admission",
@@ -448,23 +324,14 @@ export const events = [
     start: "2026-12-12T18:00:00Z",
     end: "2026-12-12T22:00:00Z",
     image: "post-burn-s-night-making-our-own-haggis-and-s-02",
-    description: [
-      {
-        text: "From root to leaf, the luxury leftovers"
-      },
-      {
-        text: "UK supermarkets reject up to 4.5 million tonnes of fresh fruit and vegetables every year because they don’t meet the right standards for shape, size and appearance. A University of Edinburgh study revealed that over a third of farmed produce never gets past suppliers. The leftovers? They’re ploughed back in, used for animal feed or sent off to anaerobic digestion plants."
-      },
-      {
-        text: "For this season of chef’s table dinners in the Rhynd’s Loft we’re shining a spotlight on the rejects. What the supermarkets don’t want, we’re going to turn into a fine-dining masterpiece that heroes our amazing local produce."
-      },
-      {
-        text: "Head chef Jack Baldwin will take you on a culinary journey of Fife’s greatest produce via canapés and a four-course dinner. Hosted by candlelight, these chef’s table dinners are not to be missed."
-      },
-      {
-        text: "Let’s celebrate the rejects, the ones that don’t conform. Life comes in different shapes and sizes, and we’re here to see hero them all."
-      }
+    about: [
+      "From root to leaf, the luxury leftovers",
+      "UK supermarkets reject up to 4.5 million tonnes of fresh fruit and vegetables every year because they don’t meet the right standards for shape, size and appearance. A University of Edinburgh study revealed that over a third of farmed produce never gets past suppliers. The leftovers? They’re ploughed back in, used for animal feed or sent off to anaerobic digestion plants.",
+      "For this season of chef’s table dinners in the Rhynd’s Loft we’re shining a spotlight on the rejects. What the supermarkets don’t want, we’re going to turn into a fine-dining masterpiece that heroes our amazing local produce.",
+      "Head chef Jack Baldwin will take you on a culinary journey of Fife’s greatest produce via canapés and a four-course dinner. Hosted by candlelight, these chef’s table dinners are not to be missed.",
+      "Let’s celebrate the rejects, the ones that don’t conform. Life comes in different shapes and sizes, and we’re here to see hero them all."
     ],
+    preview: 758,
     tickets: [
       {
         name: "General Admission",
@@ -489,23 +356,14 @@ export const events = [
     start: "2027-02-06T18:00:00Z",
     end: "2027-02-06T22:00:00Z",
     image: "post-burn-s-night-making-our-own-haggis-and-s-02",
-    description: [
-      {
-        text: "From root to leaf, the luxury leftovers"
-      },
-      {
-        text: "UK supermarkets reject up to 4.5 million tonnes of fresh fruit and vegetables every year because they don’t meet the right standards for shape, size and appearance. A University of Edinburgh study revealed that over a third of farmed produce never gets past suppliers. The leftovers? They’re ploughed back in, used for animal feed or sent off to anaerobic digestion plants."
-      },
-      {
-        text: "For this season of chef’s table dinners in the Rhynd’s Loft we’re shining a spotlight on the rejects. What the supermarkets don’t want, we’re going to turn into a fine-dining masterpiece that heroes our amazing local produce."
-      },
-      {
-        text: "Head chef Jack Baldwin will take you on a culinary journey of Fife’s greatest produce via canapés and a four-course dinner. Hosted by candlelight, these chef’s table dinners are not to be missed."
-      },
-      {
-        text: "Let’s celebrate the rejects, the ones that don’t conform. Life comes in different shapes and sizes, and we’re here to see hero them all."
-      }
+    about: [
+      "From root to leaf, the luxury leftovers",
+      "UK supermarkets reject up to 4.5 million tonnes of fresh fruit and vegetables every year because they don’t meet the right standards for shape, size and appearance. A University of Edinburgh study revealed that over a third of farmed produce never gets past suppliers. The leftovers? They’re ploughed back in, used for animal feed or sent off to anaerobic digestion plants.",
+      "For this season of chef’s table dinners in the Rhynd’s Loft we’re shining a spotlight on the rejects. What the supermarkets don’t want, we’re going to turn into a fine-dining masterpiece that heroes our amazing local produce.",
+      "Head chef Jack Baldwin will take you on a culinary journey of Fife’s greatest produce via canapés and a four-course dinner. Hosted by candlelight, these chef’s table dinners are not to be missed.",
+      "Let’s celebrate the rejects, the ones that don’t conform. Life comes in different shapes and sizes, and we’re here to see hero them all."
     ],
+    preview: 758,
     tickets: [
       {
         name: "General Admission",
@@ -530,23 +388,14 @@ export const events = [
     start: "2027-03-06T18:00:00Z",
     end: "2027-03-06T22:00:00Z",
     image: "post-burn-s-night-making-our-own-haggis-and-s-02",
-    description: [
-      {
-        text: "From root to leaf, the luxury leftovers"
-      },
-      {
-        text: "UK supermarkets reject up to 4.5 million tonnes of fresh fruit and vegetables every year because they don’t meet the right standards for shape, size and appearance. A University of Edinburgh study revealed that over a third of farmed produce never gets past suppliers. The leftovers? They’re ploughed back in, used for animal feed or sent off to anaerobic digestion plants."
-      },
-      {
-        text: "For this season of chef’s table dinners in the Rhynd’s Loft we’re shining a spotlight on the rejects. What the supermarkets don’t want, we’re going to turn into a fine-dining masterpiece that heroes our amazing local produce."
-      },
-      {
-        text: "Head chef Jack Baldwin will take you on a culinary journey of Fife’s greatest produce via canapés and a four-course dinner. Hosted by candlelight, these chef’s table dinners are not to be missed."
-      },
-      {
-        text: "Let’s celebrate the rejects, the ones that don’t conform. Life comes in different shapes and sizes, and we’re here to see hero them all."
-      }
+    about: [
+      "From root to leaf, the luxury leftovers",
+      "UK supermarkets reject up to 4.5 million tonnes of fresh fruit and vegetables every year because they don’t meet the right standards for shape, size and appearance. A University of Edinburgh study revealed that over a third of farmed produce never gets past suppliers. The leftovers? They’re ploughed back in, used for animal feed or sent off to anaerobic digestion plants.",
+      "For this season of chef’s table dinners in the Rhynd’s Loft we’re shining a spotlight on the rejects. What the supermarkets don’t want, we’re going to turn into a fine-dining masterpiece that heroes our amazing local produce.",
+      "Head chef Jack Baldwin will take you on a culinary journey of Fife’s greatest produce via canapés and a four-course dinner. Hosted by candlelight, these chef’s table dinners are not to be missed.",
+      "Let’s celebrate the rejects, the ones that don’t conform. Life comes in different shapes and sizes, and we’re here to see hero them all."
     ],
+    preview: 758,
     tickets: [
       {
         name: "General Admission",
@@ -571,19 +420,11 @@ export const events = [
     start: "2027-05-21T16:00:00+01:00",
     end: "2027-05-21T22:00:00+01:00",
     image: "events-at-the-rhynd-10",
-    description: [
-      {
-        text: "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer."
-      },
-      {
-        text: "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level."
-      },
-      {
-        text: "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm."
-      },
-      {
-        text: "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
-      }
+    about: [
+      "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer.",
+      "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level.",
+      "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm.",
+      "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
     ],
     tickets: [
       {
@@ -603,19 +444,11 @@ export const events = [
     start: "2027-05-28T16:00:00+01:00",
     end: "2027-05-28T22:00:00+01:00",
     image: "wild-weddings-01",
-    description: [
-      {
-        text: "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer."
-      },
-      {
-        text: "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level."
-      },
-      {
-        text: "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm."
-      },
-      {
-        text: "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
-      }
+    about: [
+      "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer.",
+      "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level.",
+      "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm.",
+      "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
     ],
     tickets: [
       {
@@ -635,19 +468,11 @@ export const events = [
     start: "2027-06-18T16:00:00+01:00",
     end: "2027-06-18T22:00:00+01:00",
     image: "events-at-the-rhynd-12",
-    description: [
-      {
-        text: "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer."
-      },
-      {
-        text: "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level."
-      },
-      {
-        text: "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm."
-      },
-      {
-        text: "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
-      }
+    about: [
+      "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer.",
+      "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level.",
+      "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm.",
+      "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
     ],
     tickets: [
       {
@@ -667,19 +492,11 @@ export const events = [
     start: "2027-06-25T16:00:00+01:00",
     end: "2027-06-25T22:00:00+01:00",
     image: "events-at-the-rhynd-13",
-    description: [
-      {
-        text: "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer."
-      },
-      {
-        text: "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level."
-      },
-      {
-        text: "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm."
-      },
-      {
-        text: "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
-      }
+    about: [
+      "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer.",
+      "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level.",
+      "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm.",
+      "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
     ],
     tickets: [
       {
@@ -699,19 +516,11 @@ export const events = [
     start: "2027-07-09T16:00:00+01:00",
     end: "2027-07-09T22:00:00+01:00",
     image: "events-at-the-rhynd-14",
-    description: [
-      {
-        text: "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer."
-      },
-      {
-        text: "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level."
-      },
-      {
-        text: "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm."
-      },
-      {
-        text: "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
-      }
+    about: [
+      "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer.",
+      "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level.",
+      "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm.",
+      "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
     ],
     tickets: [
       {
@@ -731,19 +540,11 @@ export const events = [
     start: "2027-07-23T16:00:00+01:00",
     end: "2027-07-23T22:00:00+01:00",
     image: "events-at-the-rhynd-15",
-    description: [
-      {
-        text: "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer."
-      },
-      {
-        text: "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level."
-      },
-      {
-        text: "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm."
-      },
-      {
-        text: "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
-      }
+    about: [
+      "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer.",
+      "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level.",
+      "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm.",
+      "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
     ],
     tickets: [
       {
@@ -763,19 +564,11 @@ export const events = [
     start: "2027-08-06T16:00:00+01:00",
     end: "2027-08-06T22:00:00+01:00",
     image: "events-at-the-rhynd-16",
-    description: [
-      {
-        text: "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer."
-      },
-      {
-        text: "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level."
-      },
-      {
-        text: "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm."
-      },
-      {
-        text: "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
-      }
+    about: [
+      "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer.",
+      "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level.",
+      "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm.",
+      "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
     ],
     tickets: [
       {
@@ -795,19 +588,11 @@ export const events = [
     start: "2027-08-20T16:00:00+01:00",
     end: "2027-08-20T22:00:00+01:00",
     image: "events-at-the-rhynd-17",
-    description: [
-      {
-        text: "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer."
-      },
-      {
-        text: "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level."
-      },
-      {
-        text: "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm."
-      },
-      {
-        text: "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
-      }
+    about: [
+      "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer.",
+      "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level.",
+      "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm.",
+      "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
     ],
     tickets: [
       {
@@ -827,19 +612,11 @@ export const events = [
     start: "2027-09-10T16:00:00+01:00",
     end: "2027-09-10T22:00:00+01:00",
     image: "events-at-the-rhynd-44",
-    description: [
-      {
-        text: "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer."
-      },
-      {
-        text: "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level."
-      },
-      {
-        text: "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm."
-      },
-      {
-        text: "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
-      }
+    about: [
+      "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer.",
+      "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level.",
+      "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm.",
+      "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
     ],
     tickets: [
       {
@@ -859,19 +636,11 @@ export const events = [
     start: "2027-09-24T16:00:00+01:00",
     end: "2027-09-24T22:00:00+01:00",
     image: "events-at-the-rhynd-19",
-    description: [
-      {
-        text: "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer."
-      },
-      {
-        text: "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level."
-      },
-      {
-        text: "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm."
-      },
-      {
-        text: "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
-      }
+    about: [
+      "Take a Scottish culinary journey that will take you from source to supper, heroing the very best that Fife has to offer.",
+      "We will meet at the Rhynd Café at 4pm before walking into the woods. Over a one-kilometre walk, we’ll taste wines, ciders, gins and whiskys (depending on the dates), as well as canapés made by The Rhynd’s chef Jack Baldwin who has worked at a Michelin-starred level.",
+      "Dinner will be served at the chef’s table under a stretch tent, when Jack will talk through where all the ingredients have been sourced, and how he’s cooked over the open Argentinian grill. The five-course menu will hero local produce and include venison, eggs, vegetables and herbs from the farm.",
+      "The evening will end by the open fire with petit fours and night caps, before returning to The Rhynd between 9.30 and 10pm."
     ],
     tickets: [
       {

@@ -1,5 +1,5 @@
 /**
- * Header and footer navigation, as published on therhynd.com (Oct 2026).
+ * Header and footer navigation, as published on therhynd.com (20 Oct 2026).
  * Paths keep the original URLs (café is plain "/cafe": the live site's accented
  * "/café" is not served by `next dev`) and the pricing page's original
  * "copy-of-download-our-brochure" slug.
@@ -10,7 +10,10 @@ export type NavLink = {
   href: string;
 };
 
-export type NavItem = NavLink & {
+/** A header item: a page link, a group label (no `href`), or a link with sub-pages. */
+export type NavItem = {
+  label: string;
+  href?: string;
   children?: NavLink[];
 };
 
@@ -49,11 +52,23 @@ export const mainNavigation: NavItem[] = [
     href: "/cafe",
     children: [{ label: "Book a table", href: "/book-a-table" }],
   },
-  { label: "Fitness", href: "/rhynd-fitness" },
-  { label: "Activities", href: "/activities" },
-  { label: "Bacon and Brakes", href: "/bacon-and-brakes" },
-  { label: "Sustainability", href: "/sustainability" },
-  { label: "News", href: "/blog" },
+  {
+    // On the live desktop menu this label is not a link (the mobile menu links
+    // it to a new /things-to-do page, which is not part of this rebuild).
+    label: "Things to do",
+    children: [
+      { label: "Fitness", href: "/rhynd-fitness" },
+      { label: "Activities", href: "/activities" },
+      { label: "Bacon and Brakes", href: "/bacon-and-brakes" },
+    ],
+  },
+  {
+    label: "More",
+    children: [
+      { label: "Sustainability", href: "/sustainability" },
+      { label: "News", href: "/blog" },
+    ],
+  },
 ];
 
 /**
@@ -75,4 +90,9 @@ export const footerNavigation: NavLink[] = [
 export function isCurrentPath(pathname: string, href: string): boolean {
   const normalise = (path: string) => (path.length > 1 ? path.replace(/\/+$/, "") : path);
   return normalise(pathname) === normalise(href);
+}
+
+/** True when the item's page, or one of its sub-pages, is being viewed. */
+export function isCurrentSection(pathname: string, item: NavItem): boolean {
+  return (item.href !== undefined && isCurrentPath(pathname, item.href)) || (item.children ?? []).some((child) => isCurrentPath(pathname, child.href));
 }

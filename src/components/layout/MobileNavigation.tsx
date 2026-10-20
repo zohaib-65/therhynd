@@ -13,11 +13,14 @@ type MobileNavigationProps = {
   items: NavItem[];
 };
 
+const itemClass = "py-2 text-[1.75rem] leading-tight font-light text-forest uppercase aria-[current=page]:text-ink/60";
+
 /**
  * Menu button and full-screen cream menu (shadcn Sheet on Radix Dialog), as
  * on the live mobile site: large green capitals, a chevron beside each item
- * that has sub-pages. The dialog traps focus, closes with Escape or the
- * close button, and closes after choosing a page.
+ * that has sub-pages. Group labels without a page ("Things to do", "More")
+ * open their list when tapped. The dialog traps focus, closes with Escape or
+ * the close button, and closes after choosing a page.
  */
 export function MobileNavigation({ items }: MobileNavigationProps) {
   const pathname = usePathname();
@@ -28,7 +31,7 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger className="grid size-11 place-items-center text-forest">
-        <Menu aria-hidden="true" className="size-8" strokeWidth={1.5} />
+        <Menu aria-hidden="true" className="size-9" strokeWidth={1.5} />
         <span className="sr-only">Open menu</span>
       </SheetTrigger>
       <SheetContent
@@ -39,33 +42,46 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
         <SheetTitle className="sr-only">Menu</SheetTitle>
         <nav aria-label="Main">
           <ul className="mx-auto flex max-w-sm flex-col items-center gap-1">
-            {items.map((item) => {
-              const submenuId = `${baseId}-${item.href}`;
-              const isExpanded = expanded === item.href;
+            {items.map((item, index) => {
+              const submenuId = `${baseId}-${index}`;
+              const isExpanded = expanded === item.label;
+              const toggle = () => setExpanded(isExpanded ? null : item.label);
+              const chevron = (
+                <ChevronDown aria-hidden="true" className={cn("size-6 transition-transform", isExpanded && "rotate-180")} strokeWidth={1.5} />
+              );
               return (
-                <li key={item.href} className="w-full text-center">
+                <li key={item.label} className="w-full text-center">
                   <div className="relative flex items-center justify-center">
-                    {item.children && (
-                      <button
-                        type="button"
-                        aria-expanded={isExpanded}
-                        aria-controls={submenuId}
-                        onClick={() => setExpanded(isExpanded ? null : item.href)}
-                        className="absolute left-0 grid size-11 place-items-center text-ink"
-                      >
-                        <ChevronDown aria-hidden="true" className={cn("size-6 transition-transform", isExpanded && "rotate-180")} strokeWidth={1.5} />
-                        <span className="sr-only">{`${item.label} pages`}</span>
+                    {item.href ? (
+                      <>
+                        {item.children && (
+                          <button
+                            type="button"
+                            aria-expanded={isExpanded}
+                            aria-controls={submenuId}
+                            onClick={toggle}
+                            className="absolute left-0 grid size-11 place-items-center text-ink"
+                          >
+                            {chevron}
+                            <span className="sr-only">{`${item.label} pages`}</span>
+                          </button>
+                        )}
+                        <SheetClose asChild>
+                          <Link
+                            href={item.href}
+                            aria-current={isCurrentPath(pathname, item.href) ? "page" : undefined}
+                            className={itemClass}
+                          >
+                            {item.label}
+                          </Link>
+                        </SheetClose>
+                      </>
+                    ) : (
+                      <button type="button" aria-expanded={isExpanded} aria-controls={submenuId} onClick={toggle} className={itemClass}>
+                        <span className="absolute top-1/2 left-0 grid size-11 -translate-y-1/2 place-items-center text-ink">{chevron}</span>
+                        {item.label}
                       </button>
                     )}
-                    <SheetClose asChild>
-                      <Link
-                        href={item.href}
-                        aria-current={isCurrentPath(pathname, item.href) ? "page" : undefined}
-                        className="py-2 text-[1.75rem] leading-tight font-light text-forest uppercase aria-[current=page]:text-ink/60"
-                      >
-                        {item.label}
-                      </Link>
-                    </SheetClose>
                   </div>
                   {item.children && (
                     <ul id={submenuId} hidden={!isExpanded} className="pb-2">

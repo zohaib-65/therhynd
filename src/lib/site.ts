@@ -22,6 +22,8 @@ export const site = {
     region: "Fife",
     postalCode: "KY16 0DR",
     country: "Scotland",
+    /** Map position of Rhynd Farm, from the live event pages' location. */
+    geo: { lat: 56.4041583, lng: -2.8665048 },
   },
   phone: {
     display: "07340 530775",

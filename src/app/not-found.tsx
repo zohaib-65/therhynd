@@ -21,7 +21,7 @@ export default function NotFound() {
       </Button>
       <nav aria-label="Main sections" className="mt-12">
         <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-lead">
-          {mainNavigation.map((item) => (
+          {mainNavigation.flatMap((item) => (item.href ? [{ label: item.label, href: item.href }] : (item.children ?? []))).map((item) => (
             <li key={item.href}>
               <Link href={item.href} className="underline underline-offset-4 hover:text-forest">
                 {item.label}

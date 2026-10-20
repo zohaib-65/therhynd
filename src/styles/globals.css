@@ -65,12 +65,15 @@
   /* Layout */
   --container-content: 61.25rem; /* 980px content column used across the site */
   --spacing-header: 9.6875rem; /* 155px desktop header */
-  --spacing-header-mobile: 7.5rem; /* 120px mobile header */
+  --spacing-header-mobile: 6.5rem; /* 104px mobile header */
 }
 
 @theme inline {
   --font-sans: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
+  /* Event pages only (loaded by src/components/events/fonts.ts) */
+  --font-event-heading: var(--font-barlow-condensed), "Arial Narrow", sans-serif;
+  --font-event-body: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
 
   /* shadcn/ui semantic colours, mapped onto the brand palette below */
   --color-background: var(--background);
