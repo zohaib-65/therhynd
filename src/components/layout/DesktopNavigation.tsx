@@ -96,7 +96,8 @@ export function DesktopNavigation({ items, className }: DesktopNavigationProps) 
                   type="button"
                   aria-controls={submenuId}
                   aria-expanded={open}
-                  onClick={() => setOpenIndex(open ? null : index)}
+                  // Opens (never closes) the list: hover has usually opened it already.
+                  onClick={() => setOpenIndex(index)}
                   className={cn(trigger, highlighted && "bg-cream")}
                 >
                   {item.label}

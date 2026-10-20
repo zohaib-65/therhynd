@@ -53,7 +53,9 @@ Last updated: 20 October 2026.
 | Bookalet calendars (Farmhouse, Forest Rooms), TeamUp (Fitness) | Booking panels linking to the verified provider pages; no simulated availability |
 | Wix table widget (Book a table, Café) | Table request form with the live party sizes (1–10) and times; "over 10 people, email" note kept |
 | Gift card "Buy now" | Links to the live site (shop not rebuilt) |
-| Event detail pages | The 21 events linked from the site are rebuilt at `/events/<slug>` with a ticket request form (no payment; the team confirms). The live Wix ticket service fee is not shown |
+| Event detail pages | The 21 events linked from the site are rebuilt at `/events/<slug>`, laid out like the live page (fonts substituted, see design-system.md). Checkout opens a ticket request form (no payment; the team confirms). Not copied: the Wix ticket service fee line, the "Membership Offer" box on past events (Wix memberships), the Google map (OpenStreetMap instead, no cookies) |
+| Header (live site changed 20 Oct 2026) | Rebuilt to the new menu: Home, Weddings, Events, Stay, Café, Things to do, More. The live mobile menu also links "Things to do" to a new `/things-to-do` page and adds `/experiences`; neither page is part of this rebuild, so "Things to do" opens its list instead |
+| Favicon | `/favicon.ico` (16/32/48px) added beside the 192px icon and Apple touch icon, all from the live logo |
 | Live typos kept verbatim | "we couldn't recommends" (Café), "Explore wedding accomodation" (Wild weddings), "souring all our food" (Sustainability), unmatched quote mark in Margaux's testimonial |
 | "How we care for the estate" (Home) has no live link | Linked to `/sustainability` |
 | Pages with no meta description (What we do, Brochure, Pricing, Book a table) | First intro sentence / page text used |

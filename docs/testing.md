@@ -25,20 +25,33 @@ below; `npm run check` is now lint, typecheck and build.
 
 ## Browser checks on `npm run dev`
 
-Run in Chrome against a freshly started dev server after the move to `src/`
-(an already-running dev server must be restarted after folders move, or every
-page returns 404):
+Run in Chrome against a freshly started dev server (20 Oct 2026, after the
+new header, event pages and favicon). A running dev server must be restarted
+after folders move, and after `@theme` tokens change in `globals.css` (it
+kept serving the old theme until restarted). The test browser runs with
+software WebGL (`--use-angle=swiftshader`) like a normal desktop browser,
+because the OpenStreetMap embed needs WebGL; the gallery suite runs without
+it (software rendering slows the lightbox's closing animation past the
+test's 300ms wait).
 
 - **Crawl**: all 72 sitemap URLs plus every internal link found on them,
   desktop 1440 and iPhone 13 (144 page loads): every page 200 with one `h1`;
   no same-origin request with status 400 or above, no failed requests, no
   console or page errors. All 382 linked files (images, video posters, PDFs)
   exist.
-- **Dev server terminal**: 853 requests answered 200; the one 404 is the
-  deliberate `/no-such-page` test of the not-found page. No errors or warnings.
-- **Suites**: interactions 30/30, 51/51, 58/58, 40/40; no overflow on 72 URLs
-  at 360/768/1024; 51 header, dropdown, footer and mobile menu clicks land on
-  the right page.
+- **Dev server terminal**: 1,438 requests answered 200; the one 404 is the
+  deliberate `/no-such-page` test of the not-found page.
+- **Header and links**: 53 clicks land on the right page or open the right
+  list: every header item, every dropdown item (including "Things to do" and
+  "More", which open their lists), the logo, the footer links and every
+  mobile menu item and sub-item; 72 pages crawled, 89 anchors, 72 sitemap
+  URLs; no console errors. Live vs local screenshots at 1440 (home, a
+  sub-page, two open dropdowns) and on iPhone 13 match; item widths at 1280
+  are within 1px of the live ones.
+- **Suites**: interactions 30/30, 51/51, 58/58; events 66/66 (below); no
+  overflow on 72 URLs at 360/768/1024.
+- **Favicon**: `/favicon.ico` (16/32/48px) returns 200 and every page links
+  it with the 192px icon and the Apple touch icon.
 
 ## Browser checks on the built `out/`
 
@@ -78,16 +91,27 @@ hosts, no raw Markdown or Wix URLs in the visible text, no console errors.
   the page opens normally ("The Rhynd | Facebook") in a real Chrome window.
 - Console errors: none.
 
-**Event pages** (40 checks, desktop and iPhone 13): all 14 Events
+**Event pages** (66 checks, desktop and iPhone 13): all 14 Events
 "Buy Tickets" links are local and open the event page; an upcoming event
-shows title, date and time, address, one local WebP photo, ticket type and
-price; "Buy Tickets" scrolls to Tickets; the total updates (3 × £95 =
-£285.00); an empty request flags name and email and sends nothing; a valid
-request with no endpoint says it was not sent (no fake success); "Other
-dates" lists and opens the 3 sibling dates; a past event shows "Tickets are
-not on sale" with no form, its full menu as lists, and "See other events"
-returns to the Events page; article links to events stay on this site;
-no page errors.
+shows title, date and time, address, one local WebP photo, ticket type,
+price and sale end; "Buy Tickets" scrolls to Tickets; the request form stays
+hidden until Checkout; Checkout with 0 tickets shows "Pick tickets to proceed
+to the checkout."; Quantity offers 0–30; picking 3 makes the Total £285.00
+and clears the message; Checkout opens the form showing "3 × General
+Admission (£95.00 each)" and moves focus to that summary; an empty request
+flags name and email and sends nothing; a valid request with no endpoint says
+it was not sent (no fake success); About is collapsed at "Life comes in…",
+Read More shows everything and Read Less collapses it; the map and three
+labelled share icons are present; "Other dates" lists and opens the 3 sibling
+dates; a past event shows "Tickets are not on sale" in the header and no
+Tickets section, is collapsed after its first menu item and expands to the
+full menu, and "See other events" returns to the Events page; article links
+to events stay on this site; no page errors.
+
+The event layout was compared with the live pages (wine safari 13, chef's
+table 14 Nov, Burns Night) side by side at 1440 and on iPhone 13, and every
+event's "About" text and "Read More" cut point was checked against the live
+page.
 
 **New pages** (58 checks, desktop and iPhone 13): Barn weddings testimonials
 (12 distinct quotes via Next, wrap-around both ways, dot selects slide, dots

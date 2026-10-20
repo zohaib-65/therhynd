@@ -113,9 +113,18 @@ on their pages).
 `src/content/events.ts` lists the 21 events linked from the site (copied from
 the live event pages, October 2026): `slug`, `title`, `summary` (optional),
 `shortDate`, `location`, `date` and `address` as shown, `start`/`end`
-(ISO with offset), `image` (id), `description` (text blocks, same format as
-pages), `tickets` (`name`, `price`, `saleEnds`; empty = not on sale) and
-`otherDates` (slugs). Each becomes `/events/<slug>`. To add an event, add an
+(ISO with offset), `image` (id), `about`, `preview` (optional), `tickets`
+(`name`, `price`, `saleEnds`; empty = not on sale) and `otherDates` (slugs).
+
+`about` mirrors the live rich text: each entry is one block, blocks are one
+blank line apart; a string is a paragraph, a `string[]` is lines directly
+under each other (`""` = empty line, e.g. a menu: `["Canapés", "· Braised
+venison tartlet…"]`), `{ image }` is a photo. Strings are inline Markdown.
+`preview` is the number of characters (spaces not counted) shown before
+"Read More >", taken from the live page (397 Burns Night, 237 spring larder,
+344 past chef's tables, 758 upcoming chef's tables); omit it to show
+everything. The text of all 21 events was re-read from the live pages on
+20 October 2026 and matches word for word. Each becomes `/events/<slug>`. To add an event, add an
 entry and link to `/events/<slug>` (e.g. from the Events page grid).
 
 ## Image list

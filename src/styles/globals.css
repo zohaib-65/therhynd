@@ -30,7 +30,6 @@
   --color-forest: #266445; /* accent text, mobile menu, subscribe outline */
   --color-slate: #373b4d; /* footer form borders and Send button */
   --color-charcoal: #282626; /* footer document button */
-  --color-rule: #cacaca; /* rules above and below the desktop navigation */
   --color-error: #a4231a; /* validation text (not on the live site; 7:1 on paper) */
 
   /*
@@ -60,7 +59,6 @@
   --text-button--letter-spacing: 0.1em;
   --text-button-lg: clamp(1.25rem, 1.134rem + 0.476vw, 1.5625rem); /* image tiles 25px */
   --text-button-lg--letter-spacing: 0.1em;
-  --text-nav: 0.6875rem; /* 11px */
 
   /* Layout */
   --container-content: 61.25rem; /* 980px content column used across the site */

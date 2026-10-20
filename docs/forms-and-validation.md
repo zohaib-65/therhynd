@@ -128,17 +128,21 @@ café. It is not a confirmed booking until they confirm it."
 
 | Field | Label | Required | Rule |
 |---|---|---|---|
-| `ticket` | Ticket type (a select when an event has several; fixed when it has one) | yes | non-empty |
-| `quantity` | Number of tickets (1–30) | yes | whole number → number |
+| `tickets` | From the ticket picker, e.g. "3 × General Admission (£95.00 each)" | yes | non-empty |
+| `quantity` | From the picker: total tickets (1–30) | yes | whole number → number |
 | `name` | Name | yes | `requiredName` |
 | `email` | Email | yes | `requiredEmail` |
 | `phone` | Phone | no | `optionalPhone` |
 | `message` | Dietary requirements or questions | no | `optionalMessage` |
 
-Also sent: event title, date and ticket price. The live checkout offered up to
-the seats left (26 and 22 when checked); this form allows 1–30 and the team
-confirms availability. A running total (price × quantity) is shown; the live
-"ticket service fee" was the old platform's charge and is not added. No
+Flow as on the live page: each ticket type has a Quantity list (0–30), the
+Total updates, and "Checkout" with nothing picked shows "Pick tickets to
+proceed to the checkout." With tickets picked, Checkout opens this form
+(focus moves to the ticket summary) instead of a payment page. Also sent:
+event title, date and total. The live lists stop at the seats left (12–26
+when checked on 20 Oct 2026); the team confirms availability here. The live
+"+£… ticket service fee" line is Wix's online-checkout charge and is not
+shown, since nothing is paid online. No
 payment is taken: the success message says the request "has been received
 and is awaiting confirmation … no tickets are reserved until they do". From
 the event's start date (and for events with no tickets listed) the section

@@ -59,7 +59,7 @@ export function getEvent(slug: string): EventEntry | undefined {
 export const eventDay = (event: EventEntry) => event.start.slice(0, 10);
 
 /** Inline Markdown reduced to its visible text. */
-export const plainText = (text: string) =>
+const plainText = (text: string) =>
   text.replace(/\[([^\]]*)\]\([^)]*\)/g, "$1").replace(/\*\*|\*/g, "");
 
 const visibleLength = (text: string) => plainText(text).replace(/\s/g, "").length;

@@ -9,6 +9,8 @@ with computed styles and pixel sampling. Tokens live in `src/styles/globals.css`
 |---|---|---|
 | Everything | Brandon Grotesque Light (`brandon-grot-w01-light`), headings rendered with synthetic bold | **Jost** (variable, Google Fonts, self-hosted by `next/font`) |
 | Footer document button | Avenir Light | Jost |
+| Event pages: date line, title, section headings, ticket names and prices | DIN Neuzeit Grotesk Bold Condensed | **Barlow Condensed** 500 (`font-event-heading`) |
+| Event pages: text, labels, totals | Avenir Light | **Figtree** 300 (`font-event-body`) |
 
 **Approximation.** Brandon Grotesque is a licensed font, so its files were not
 copied. Jost was chosen after rendering eight Google fonts against the live
@@ -16,7 +18,16 @@ text: closest texture, x-height and two-storey "a". Jost runs about 5% wider,
 compensated with letter-spacing (−0.01em body, −0.02em headings): the live
 line "The Foster family has run Leuchars Estate for more than 100 years." is
 523px; Jost renders it at 531px. Headings use weight 425 to approach the
-synthetic bold. If a Brandon Grotesque web licence is supplied (e.g. Adobe
+synthetic bold.
+
+The event pages (Wix Events) use two more licensed fonts. Their stand-ins
+were chosen by measuring live text widths and comparing shapes:
+Barlow Condensed 500 renders "Fri 21 May | Tayport" at 24px within 2% of
+the live width; Figtree 300 sets the live 16px paragraphs at 828px vs 818px,
+so lines break in the same places. Both load only on `/events/<slug>`
+(`src/components/events/fonts.ts`).
+
+If a Brandon Grotesque web licence is supplied (e.g. Adobe
 Fonts), replace the `Jost` import in `src/app/layout.tsx` and remove the
 letter-spacing compensation.
 
@@ -27,12 +38,11 @@ letter-spacing compensation.
 | `ink` | `#312F2E` | body text, headings, solid buttons |
 | `paper` | `#FCFCFC` | page and header background |
 | `blush` | `#F5EDE5` | band behind the welcome card |
-| `cream` | `#F0ECDF` | split-section panels, Eat card, mobile menu |
+| `cream` | `#F0ECDF` | split-section panels, Eat card, mobile menu, current and hovered nav item |
 | `stone` | `#D9D3BF` | footer |
 | `forest` | `#266445` | mobile menu text and icon, Subscribe outline, focus ring |
 | `slate` | `#373B4D` | footer form borders, Send button |
 | `charcoal` | `#282626` | footer "Event space Ts & Cs" button |
-| `rule` | `#CACACA` | 2px rules above and below the desktop nav |
 | `error` | `#A4231A` | validation text (not on the live site; 7:1 contrast on paper) |
 
 Use them as Tailwind colours: `bg-cream`, `text-forest`, `border-slate`.
@@ -52,7 +62,6 @@ Fluid between a 390px phone and the 1440px desktop measurement:
 | `text-footer` | 17px | 15px | footer |
 | `text-button` | 20px, tracking 0.1em | 22px | CTA buttons |
 | `text-button-lg` | 25px | 22px | image-tile buttons |
-| `text-nav` | 11px | n/a | desktop navigation |
 
 On phones the live site renders a 320px layout scaled up, so its mobile text
 is relatively larger; Home split/overlay copy and buttons were scaled to
@@ -66,8 +75,12 @@ more?"). `SectionHeading` sizes: `lg` 56px, `md` 45px, `sm` 38px, `xs` 22px.
 ## Spacing and layout
 
 - Content column: `max-w-content` = 980px (live site grid).
-- Header: 155px desktop (`h-header`), 120px phone (`h-header-mobile`); sticky.
-- Desktop nav band: 48px between 2px `rule` lines, logo 116px.
+- Header: 155px desktop (`h-header`), 104px phone (`h-header-mobile`, logo 72px); sticky.
+- Desktop nav (live site since 20 Oct 2026): seven 20px light capitals sharing
+  the 980px band, 52px tall, 41px from the top, a 1px `ink` rule between
+  items; `cream` behind the current section and a hovered link; dropdowns 7px
+  below, `paper` background, 35px rows with 1px `ink` rules between them.
+  Logo 116px.
 - Hero: 454px desktop, `min(131vw, 560px)` below that.
 - Welcome card: 60px blush band, columns 889fr/431fr, min-height 616px.
 - Wedding tiles: 3 columns from 768px, 506px tall at 1440.

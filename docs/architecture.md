@@ -105,7 +105,8 @@ modules.
 - **Third-party widgets are not embedded.** Sonas forms became native forms;
   Bookalet and TeamUp became links to the providers; event pages are rebuilt
   here with a ticket request form (no payments); only the gift card shop
-  links to the live site.
+  links to the live site. The one embed is the OpenStreetMap map on event
+  pages (no key, no cookies).
 
 ## Adding a page
 

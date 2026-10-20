@@ -37,11 +37,16 @@ Section types and their fields are defined (and validated) in
 
 - **`SiteHeader`** (server): sticky header; desktop = logo + 980px nav band;
   phones/touch = centred logo + menu button.
-- **`DesktopNavigation`** (client): dropdowns open on hover and keyboard focus;
-  Escape closes and returns focus to the parent; ArrowDown reopens and focuses
-  the first sub-page; `aria-current="page"`.
+- **`DesktopNavigation`** (client): the live menu since 20 Oct 2026: Home,
+  Weddings, Events, Stay, Café, Things to do, More, with rules between items
+  and cream behind the current section (parent included when a sub-page is
+  open). Dropdowns open on hover and keyboard focus; Escape closes and returns
+  focus to the item; ArrowDown reopens and focuses the first sub-page;
+  `aria-current="page"`. "Things to do" and "More" have no page: they are
+  buttons that open their list.
 - **`MobileNavigation`** (client): full-screen cream sheet (Radix Dialog) with
-  chevron toggles for sub-pages.
+  chevron toggles for sub-pages; "Things to do" and "More" open their list
+  when tapped.
 - **`SiteFooter`** (server): contact form, address/socials/terms PDF, links.
 
 ## Sections (`src/components/sections/`)
@@ -103,8 +108,11 @@ plus `fields.ts`, `dates.ts`, `use-form-submission.ts`, `use-venue-today.ts`,
 
 | Component | Notes |
 |---|---|
-| Event page | Photo, short date and venue, title, "Buy Tickets" (jumps to `#tickets`); Time & Location with links to other dates; About the Event; Tickets; share links (Facebook, X, LinkedIn). Mirrors the live event page layout. |
-| `EventTickets` (client) | `title`, `date`, `day`, `tickets`. Ticket table and request form; "Tickets are not on sale" for past events or events without tickets. |
+| Event page | Laid out like the live event page (measured at 1440 and on iPhone 13): square photo beside date · venue, title and "Buy Tickets" (photo 16:9 on top on phones, title before the date); Time & Location with "Other dates" boxes and a rule below them; About the Event; Tickets; map; "Share This Event" icons. Past events show "Tickets are not on sale" and "See other events" instead of the button and have no Tickets section. |
+| `EventAbout` / `ReadMore` | "About the Event" blocks with the live spacing; with `preview`, collapsed after that many characters with "Read More >" / "Read Less >". |
+| `EventTickets` (client) | `title`, `date`, `tickets`. Ticket type (and sale end), price, Quantity 0–30, Total, "Checkout". Checkout with no tickets shows "Pick tickets to proceed to the checkout."; otherwise it opens the ticket request form (no payment). `OnSale` switches header button and section off from the event day. |
+| `EventMap` | OpenStreetMap embed (979×314 desktop, 16:9 phones) where the live page shows a Google map; no key, no cookies; needs WebGL in the browser. |
+| `ShareEvent` | Facebook, X and LinkedIn share links with the live icons. |
 
 ## News (`src/components/news/`)
 
