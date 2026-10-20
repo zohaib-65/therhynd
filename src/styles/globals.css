@@ -1,0 +1,132 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/*
+ * `desktop:` = wide screen with a mouse or trackpad. The hover dropdown
+ * navigation only appears there; touch devices of any width get the menu
+ * button, because hover menus cannot be opened reliably by touch.
+ */
+@custom-variant desktop (@media (width >= 64rem) and (pointer: fine));
+@custom-variant desktop-wide (@media (width >= 80rem) and (pointer: fine));
+
+/* shadcn components carry `dark:` styles; tie them to a .dark class that this
+   single-theme site never sets, so OS dark mode does not restyle controls. */
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design tokens for The Rhynd.
+ * Colours, sizes and spacing were measured from the rendered pages of
+ * https://www.therhynd.com (Oct 2026); see docs/design-system.md.
+ */
+
+@theme {
+  /* Brand palette */
+  --color-ink: #312f2e; /* body text, headings, solid buttons */
+  --color-paper: #fcfcfc; /* page background, text on dark buttons */
+  --color-blush: #f5ede5; /* warm band behind cards and images */
+  --color-cream: #f0ecdf; /* text panels and cards */
+  --color-stone: #d9d3bf; /* footer */
+  --color-forest: #266445; /* accent text, mobile menu, subscribe outline */
+  --color-slate: #373b4d; /* footer form borders and Send button */
+  --color-charcoal: #282626; /* footer document button */
+  --color-rule: #cacaca; /* rules above and below the desktop navigation */
+  --color-error: #a4231a; /* validation text (not on the live site; 7:1 on paper) */
+
+  /*
+   * Type scale. Fluid sizes run from a 390px phone to a 1440px desktop and
+   * stop at the desktop value measured on the live site.
+   */
+  --text-display: clamp(2.625rem, 1.5rem + 5vw, 6rem); /* "THE RHYND" 96px */
+  --text-display--letter-spacing: 0.15em;
+  --text-display--line-height: 1.15;
+  --text-tagline: clamp(2.5rem, 2.175rem + 1.333vw, 3.375rem); /* hero h1 54px */
+  --text-tagline--line-height: 0.95;
+  --text-heading: clamp(2.25rem, 1.786rem + 1.905vw, 3.5rem); /* section h2 56px */
+  --text-heading--line-height: 1.25;
+  --text-heading--letter-spacing: -0.02em; /* Jost runs ~5% wider than Brandon */
+  --text-subheading: clamp(1.875rem, 1.527rem + 1.429vw, 2.8125rem); /* form titles 45px */
+  --text-subheading--letter-spacing: -0.01em;
+  --text-title: clamp(1.75rem, 1.518rem + 0.952vw, 2.375rem); /* split-panel headings 38px */
+  --text-title--line-height: 1.3;
+  --text-title--letter-spacing: -0.01em;
+  --text-subheading--line-height: 1.5;
+  --text-lead: clamp(1.0625rem, 0.993rem + 0.286vw, 1.25rem); /* body copy 20px */
+  --text-lead--line-height: 1.45;
+  --text-lead--letter-spacing: -0.01em;
+  --text-footer: clamp(0.9375rem, 0.89rem + 0.19vw, 1.0625rem); /* footer 17px */
+  --text-footer--line-height: 1.4;
+  --text-button: 1.25rem; /* 20px, letter-spacing 2px */
+  --text-button--letter-spacing: 0.1em;
+  --text-button-lg: clamp(1.25rem, 1.134rem + 0.476vw, 1.5625rem); /* image tiles 25px */
+  --text-button-lg--letter-spacing: 0.1em;
+  --text-nav: 0.6875rem; /* 11px */
+
+  /* Layout */
+  --container-content: 61.25rem; /* 980px content column used across the site */
+  --spacing-header: 9.6875rem; /* 155px desktop header */
+  --spacing-header-mobile: 7.5rem; /* 120px mobile header */
+}
+
+@theme inline {
+  --font-sans: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
+
+  /* shadcn/ui semantic colours, mapped onto the brand palette below */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+/* The live site has a single light theme; there is no dark mode. */
+:root {
+  --background: var(--color-paper);
+  --foreground: var(--color-ink);
+  --popover: var(--color-paper);
+  --popover-foreground: var(--color-ink);
+  --primary: var(--color-ink);
+  --primary-foreground: var(--color-paper);
+  --muted: var(--color-cream);
+  --muted-foreground: #5f5b58;
+  --destructive: var(--color-error);
+  --border: color-mix(in oklab, var(--color-ink) 25%, transparent);
+  --input: var(--color-ink);
+  --ring: var(--color-forest);
+  /* Buttons, cards and inputs on the live site are square. */
+  --radius: 0rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    /* Keep anchor targets clear of the sticky header. */
+    scroll-padding-top: var(--spacing-header-mobile);
+    @variant desktop {
+      scroll-padding-top: var(--spacing-header);
+    }
+  }
+  body {
+    @apply bg-background font-light text-foreground antialiased;
+  }
+  /* Visible keyboard focus everywhere, in the brand accent colour. */
+  :focus-visible {
+    outline: 2px solid var(--color-forest);
+    outline-offset: 3px;
+  }
+}
