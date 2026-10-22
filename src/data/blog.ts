@@ -1303,7 +1303,7 @@ export const posts = [
         text: "To read previous newsletters, please head to"
       },
       {
-        text: "[https://www.therhynd.com/blog](/blog)."
+        text: "[our blog](/blog)."
       },
       {
         text: "**JANUARY CALENDAR**"
@@ -1478,7 +1478,7 @@ export const posts = [
         text: "It was fantastic to host the St Andrews Challenge clay shoot again earlier this month. A huge congratulations to the team here who worked on it before, during and after. It’s a busy day, with 200 students from different universities across the UK. We get through about 15,000 clays and, thanks to the sun rising at 12pm and setting and 12.01pm at this time of year, it’s a challenge to get everyone through the different stands. We made it, though, and we emerged at the end of the day having had very few problems with any of the traps. Well done to everyone involved. And indeed, the students, some of whom turned up in wellies rather than high heels this year."
       },
       {
-        text: "To read previous newsletters, please head to [https://www.therhynd.com/blog](/blog)."
+        text: "To read previous newsletters, please head to [our blog](/blog)."
       },
       {
         text: "**DECEMBER** **CALENDAR**"

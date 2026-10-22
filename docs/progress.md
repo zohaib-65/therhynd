@@ -52,7 +52,8 @@ Last updated: 20 October 2026.
 | Brochure PDF | Not publicly accessible; the request is sent to the team |
 | Bookalet calendars (Farmhouse, Forest Rooms), TeamUp (Fitness) | Booking panels linking to the verified provider pages; no simulated availability |
 | Wix table widget (Book a table, Café) | Table request form with the live party sizes (1–10) and times; "over 10 people, email" note kept |
-| Gift card "Buy now" | Links to the live site (shop not rebuilt) |
+| Gift card "Buy now" | Opens an email to cafe@therhynd.com, subject "Rhynd vouchers" (22 Oct 2026, on request: no links to the old site). Change the address in `src/data/pages/cafe.ts` and `events-at-the-rhynd.ts` |
+| Data folder (22 Oct 2026, on request) | All data in `src/data/` (pages, articles, events, images list, site details, menus); `src/lib/` holds code only; two article links that showed the old site's address now read "our blog" |
 | Event detail pages | The 21 events linked from the site are rebuilt at `/events/<slug>`, laid out like the live page (fonts substituted, see design-system.md). Checkout opens a ticket request form (no payment; the team confirms). Not copied: the Wix ticket service fee line, the "Membership Offer" box on past events (Wix memberships), the Google map (OpenStreetMap instead, no cookies) |
 | Header (live site changed 20 Oct 2026) | Rebuilt to the new menu: Home, Weddings, Events, Stay, Café, Things to do, More. The live mobile menu also links "Things to do" to a new `/things-to-do` page and adds `/experiences`; neither page is part of this rebuild, so "Things to do" opens its list instead |
 | Favicon | `/favicon.ico` (16/32/48px) added beside the 192px icon and Apple touch icon, all from the live logo |
@@ -65,7 +66,7 @@ Last updated: 20 October 2026.
 | Duplicate photos | Some photos appear twice (e.g. Fitness gallery); kept as on the live site |
 | Café/Events film | 22 MB 480p local copy; no captions available |
 | Mobile-only "Experiences" link, gift card, online ordering, reservations, book online pages | Not built; awaiting decision |
-| Clean-up (20 Oct 2026, on request) | One WebP per photo (was 7 sizes); page content, image list and articles moved to `.ts` (articles were Markdown); unit tests and Vitest removed; code moved under `src/` (`features/` merged into `components/`, `config/` into `lib/`); unused images, code and content fields removed; image script, `sharp`, `reference/`, `src/content/source/` and `.cache/` deleted |
+| Clean-up (20 Oct 2026, on request) | One WebP per photo (was 7 sizes); page content, image list and articles moved to `.ts` (articles were Markdown); unit tests and Vitest removed; code moved under `src/` (`features/` merged into `components/`, `config/` into `lib/`); unused images, code and content fields removed; image script, `sharp`, `reference/`, `src/data/source/` and `.cache/` deleted |
 
 ## Repository notes
 

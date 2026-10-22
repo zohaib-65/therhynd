@@ -1,7 +1,7 @@
 import type { EventEntry } from "@/lib/events";
 
 /**
- * Events copied from the live event pages (October 2026), oldest first.
+ * Events, oldest first.
  * Tickets are requested through the site's form; the team confirms and
  * takes payment. An event with no tickets listed is not on sale.
  */

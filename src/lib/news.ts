@@ -1,9 +1,9 @@
 import { z } from "zod";
 
-import { posts } from "@/content/blog";
+import { posts } from "@/data/blog";
 
 /**
- * News articles: all in src/content/blog.ts. Each is validated at build time, so a
+ * News articles: all in src/data/blog.ts. Each is validated at build time, so a
  * malformed article fails the build with its slug and field.
  */
 
@@ -16,7 +16,7 @@ const blockSchema = z.union([
   z.strictObject({ list: z.array(z.string().min(1)).min(1), ordered: z.boolean().optional() }),
   z.strictObject({ quote: z.string().min(1) }),
   z.strictObject({ rule: z.literal(true) }),
-  /** An image id from src/content/images.ts; `alt` overrides its alt text; `caption` shows under it. */
+  /** An image id from src/data/images.ts; `alt` overrides its alt text; `caption` shows under it. */
   z.strictObject({ image: z.string().min(1), alt: z.string().optional(), caption: z.string().optional() }),
 ]);
 
@@ -37,7 +37,7 @@ const postSchema = z.object({
   body: z.array(blockSchema).min(1),
 });
 
-/** Shape of one article in src/content/blog.ts. */
+/** Shape of one article in src/data/blog.ts. */
 export type PostInput = z.input<typeof postSchema>;
 export type Post = z.output<typeof postSchema>;
 export type PostBlock = z.output<typeof blockSchema>;
@@ -52,13 +52,13 @@ export function getAllPosts(): Post[] {
       const parsed = postSchema.safeParse(data);
       if (!parsed.success) {
         const name = (data as { slug?: string }).slug ?? `#${index}`;
-        throw new Error(`Invalid article "${name}" in src/content/blog.ts:\n${parsed.error.issues.map((i) => `  ${i.path.join(".")}: ${i.message}`).join("\n")}`);
+        throw new Error(`Invalid article "${name}" in src/data/blog.ts:\n${parsed.error.issues.map((i) => `  ${i.path.join(".")}: ${i.message}`).join("\n")}`);
       }
       return parsed.data;
     })
     .sort((a, b) => b.date.localeCompare(a.date));
   const slugs = new Set(cache.map((post) => post.slug));
-  if (slugs.size !== cache.length) throw new Error("Two articles in src/content/blog.ts share a slug");
+  if (slugs.size !== cache.length) throw new Error("Two articles in src/data/blog.ts share a slug");
   return cache;
 }
 

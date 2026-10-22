@@ -20,7 +20,7 @@ type ResponsiveImageProps = {
 };
 
 /**
- * A local image (one WebP file, src/content/images.ts) rendered through
+ * A local image (one WebP file, src/data/images.ts) rendered through
  * next/image. `fill` images cover their sized container; others scale to the
  * container width with their own aspect ratio, so the browser reserves space
  * before the file loads. Images lazy-load unless `preload` or `eager` is set.

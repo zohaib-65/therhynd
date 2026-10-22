@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import { useId, useRef, useState, type FocusEvent, type KeyboardEvent } from "react";
 import { flushSync } from "react-dom";
 
-import { isCurrentPath, isCurrentSection, type NavItem } from "@/lib/navigation";
+import type { NavItem } from "@/data/navigation";
+import { isCurrentPath, isCurrentSection } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
 type DesktopNavigationProps = {

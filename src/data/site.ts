@@ -1,19 +1,14 @@
 /**
- * Site-wide facts shown in the header, footer and metadata.
- * Every value here was extracted from https://www.therhynd.com (footer and
- * head tags, Oct 2026). Change contact details here, not in components.
+ * The Rhynd's details: name, address, phone, emails, social links and
+ * documents. Header, footer, forms and metadata read them from here, so
+ * change contact details here, not in components.
  */
-
-const DEFAULT_SITE_URL = "https://www.therhynd.com";
-
-/**
- * Canonical origin for metadata, sitemap and robots. Set NEXT_PUBLIC_SITE_URL
- * per deployment (e.g. a preview domain); defaults to the estate's domain.
- */
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_URL).replace(/\/+$/, "");
 
 export const site = {
   name: "The Rhynd",
+  /** The site's own address, used for canonical links, the sitemap and share
+   * links. NEXT_PUBLIC_SITE_URL overrides it (e.g. for a preview domain). */
+  url: "https://www.therhynd.com",
   locale: "en_GB",
   address: {
     lines: ["Rhynd Farm, Leuchars,", "Fife, KY16 0DR,", "Scotland"],
@@ -22,7 +17,7 @@ export const site = {
     region: "Fife",
     postalCode: "KY16 0DR",
     country: "Scotland",
-    /** Map position of Rhynd Farm, from the live event pages' location. */
+    /** Map position of Rhynd Farm (event page map). */
     geo: { lat: 56.4041583, lng: -2.8665048 },
   },
   phone: {
@@ -32,10 +27,10 @@ export const site = {
   },
   email: {
     address: "weddings@therhynd.com",
-    // The live footer link pre-fills this subject line.
+    // The footer link pre-fills this subject line.
     href: "mailto:weddings@therhynd.com?subject=Saying%20hello%20from%20the%20Rhynd%20website!",
   },
-  /** Other addresses published on the live site, by purpose. */
+  /** Other addresses, by purpose. */
   emails: {
     cafe: "cafe@therhynd.com",
     events: "events@therhynd.com",

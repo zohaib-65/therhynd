@@ -2,13 +2,19 @@
 
 ## Folders
 
+All of the site's data is in one folder, `src/data/`. The site reads only
+these files (and `public/`); nothing is fetched from another website.
+
 | Path | Contents | Edit by hand? |
 |---|---|---|
-| `src/content/pages/home.ts` | Home content (its own schema, `homePageSchema`) | yes |
-| `src/content/pages/<page>.ts` | Content pages: `metadata` + ordered `sections` (schema in `src/lib/content/sections.ts`) | yes |
-| `src/content/pages/news.ts` | News index metadata | yes |
-| `src/content/blog.ts` | 28 articles in one array (details + body blocks) | yes |
-| `src/content/images.ts` | Every image the site uses: id, file, size, alt text, focal point | yes |
+| `src/data/pages/home.ts` | Home content (its own schema, `homePageSchema`) | yes |
+| `src/data/pages/<page>.ts` | Content pages: `metadata` + ordered `sections` (schema in `src/lib/content/sections.ts`) | yes |
+| `src/data/pages/news.ts` | News index metadata | yes |
+| `src/data/blog.ts` | 28 articles in one array (details + body blocks) | yes |
+| `src/data/images.ts` | Every image the site uses: id, file, size, alt text, focal point | yes |
+| `src/data/events.ts` | 21 events (see "Events") | yes |
+| `src/data/site.ts` | Name, site address (`url`), postal address, map position, phone, emails, social links, terms PDF | yes |
+| `src/data/navigation.ts` | Header menu (with dropdowns) and footer links | yes |
 | `public/images/` | One WebP file per photo (389 files, ≈63 MB) | yes (see "Adding or replacing an image") |
 | `public/videos/` | `rhynd-cafe-film-480p.mp4` (22 MB, Café/Events), `bacon-and-brakes-720p.mp4` (3.7 MB) | yes |
 | `public/documents/` | Event space T&Cs, café menu, café wine list, Forest Rooms T&Cs (PDFs from the live site) | yes |
@@ -50,7 +56,7 @@ export default {
 
 ### Adding a page
 
-1. Write `src/content/pages/<page>.ts` using the section types above.
+1. Write `src/data/pages/<page>.ts` using the section types above.
 2. Import it in `src/lib/content/pages.ts` (add to `contentPages`).
 3. Create `src/app/<route>/page.tsx` (copy any content route, change the key).
 4. Add its images (see below) and the path to `sitePaths` in
@@ -58,7 +64,7 @@ export default {
 
 ## Articles
 
-All articles are in one file, `src/content/blog.ts`: an array typed with
+All articles are in one file, `src/data/blog.ts`: an array typed with
 `satisfies PostInput[]` (the editor flags mistakes), validated in
 `src/lib/news.ts` at build time. One entry:
 
@@ -87,7 +93,7 @@ All articles are in one file, `src/content/blog.ts`: an array typed with
 ```
 
 Body blocks: `text`, `heading`, `list` (`ordered` optional), `quote`,
-`rule: true` (a divider) and `image` (an id from `src/content/images.ts`;
+`rule: true` (a divider) and `image` (an id from `src/data/images.ts`;
 optional `alt` to override the image's own alt text, optional `caption`).
 Strings are inline Markdown. An unknown image id fails the build.
 
@@ -101,7 +107,7 @@ links Wix had auto-generated from ordinary words (`flesh.book`, `day.read`,
 text; one tracking link with a malformed target now points to
 `/sustainability`, the page it named.
 
-To add an article: paste a new entry into the array in `src/content/blog.ts`,
+To add an article: paste a new entry into the array in `src/data/blog.ts`,
 add its images (below) and set `cover`; rebuild. The News index, pagination, `/post/<slug>`
 and the sitemap pick it up automatically.
 
@@ -110,7 +116,7 @@ on their pages).
 
 ## Events
 
-`src/content/events.ts` lists the 21 events linked from the site (copied from
+`src/data/events.ts` lists the 21 events linked from the site (copied from
 the live event pages, October 2026): `slug`, `title`, `summary` (optional),
 `shortDate`, `location`, `date` and `address` as shown, `start`/`end`
 (ISO with offset), `image` (id), `about`, `preview` (optional), `tickets`
@@ -129,7 +135,7 @@ entry and link to `/events/<slug>` (e.g. from the Events page grid).
 
 ## Image list
 
-`src/content/images.ts` has one entry per image id:
+`src/data/images.ts` has one entry per image id:
 
 ```ts
 "cafe-05": { src: "/images/cafe/cafe-05.webp", width: 1280, height: 1600,
@@ -153,7 +159,7 @@ nothing as alt).
    `public/images/<dir>/<name>.webp`: 1280px wide for most images, 1920px
    for large or full-width photos. For example with ImageMagick:
    `magick photo.jpg -resize "1280x>" -quality 80 public/images/cafe/cafe-30.webp`.
-2. Add an entry to `src/content/images.ts` with `src`, the file's `width` and
+2. Add an entry to `src/data/images.ts` with `src`, the file's `width` and
    `height`, and `alt`; use its id in page content or articles.
 3. To replace a photo, overwrite the file and update `width`, `height` and
    `alt`. Then `npm run build`.

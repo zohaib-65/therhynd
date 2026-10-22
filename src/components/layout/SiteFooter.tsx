@@ -2,8 +2,8 @@ import Link from "next/link";
 
 import { ResponsiveImage } from "@/components/media/ResponsiveImage";
 import { Button } from "@/components/ui/button";
-import { footerNavigation } from "@/lib/navigation";
-import { site } from "@/lib/site";
+import { footerNavigation } from "@/data/navigation";
+import { site } from "@/data/site";
 import { ContactForm } from "@/components/forms/contact/ContactForm";
 import { getImage } from "@/lib/assets";
 

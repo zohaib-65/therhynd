@@ -11,7 +11,7 @@ import { ResponsiveImage } from "@/components/media/ResponsiveImage";
 import { getImage } from "@/lib/assets";
 import { eventDay, firstParagraph, getEvent, getEvents } from "@/lib/events";
 import { pageMetadata } from "@/lib/seo";
-import { siteUrl } from "@/lib/site";
+import { siteUrl } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 /** One page per event, at the live site's /events/<slug> URLs, laid out like the live event page. */

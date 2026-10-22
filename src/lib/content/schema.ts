@@ -1,10 +1,10 @@
 import { z } from "zod";
 
 /**
- * Shapes for the editable page content in src/content/pages/*.ts.
+ * Shapes for the editable page content in src/data/pages/*.ts.
  * Content is validated when the site builds, so a typo in a JSON file fails
  * the build with a clear message instead of rendering a broken page.
- * Image fields hold ids from src/content/images.ts.
+ * Image fields hold ids from src/data/images.ts.
  */
 
 export const linkSchema = z.object({
@@ -106,7 +106,7 @@ export type Link = z.infer<typeof linkSchema>;
 export type Heading = z.infer<typeof headingSchema>;
 export type Paragraph = z.infer<typeof paragraphSchema>;
 export type PageMetadata = z.infer<typeof pageMetadataSchema>;
-/** Shape of src/content/pages/home.ts. */
+/** Shape of src/data/pages/home.ts. */
 export type HomePageInput = z.input<typeof homePageSchema>;
-/** Shape of src/content/pages/news.ts. */
+/** Shape of src/data/pages/news.ts. */
 export type NewsPageInput = { metadata: z.input<typeof pageMetadataSchema> };

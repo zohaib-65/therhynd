@@ -3,7 +3,7 @@ import { Jost } from "next/font/google";
 
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
-import { site } from "@/lib/site";
+import { site } from "@/data/site";
 import { metadataBase } from "@/lib/seo";
 import "@/styles/globals.css";
 
@@ -32,8 +32,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-GB" className={jost.variable}>
-      <body className="flex min-h-dvh flex-col">
+    <html lang="en-GB" className={jost.variable} suppressHydrationWarning>
+      <body className="flex min-h-dvh flex-col" suppressHydrationWarning>
         <a
           href="#main"
           className="sr-only z-50 bg-ink px-4 py-2 text-paper focus:not-sr-only focus:fixed focus:top-2 focus:left-2"

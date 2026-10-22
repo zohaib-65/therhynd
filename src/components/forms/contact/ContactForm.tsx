@@ -8,7 +8,7 @@ import { FormStatus } from "@/components/forms/FormStatus";
 import { SubmitButton } from "@/components/forms/SubmitButton";
 import { TextareaField } from "@/components/forms/TextareaField";
 import { TextField } from "@/components/forms/TextField";
-import { site } from "@/lib/site";
+import { site } from "@/data/site";
 import { contactDefaults, contactSchema, type ContactFormData, type ContactFormInput } from "@/components/forms/contact/schema";
 import { LIMITS } from "@/components/forms/fields";
 import { useFormSubmission } from "@/components/forms/use-form-submission";

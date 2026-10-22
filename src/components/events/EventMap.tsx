@@ -1,10 +1,8 @@
-import { site } from "@/lib/site";
+import { site } from "@/data/site";
 
 /**
- * Map of the venue below the tickets, where the live event pages show a
- * Google map (979×314 on desktop, full width 16:9 on phones). OpenStreetMap
- * is used instead: it needs no API key and sets no cookies, while the live
- * Google map only loads after cookie consent.
+ * Map of the venue below the tickets (979×314 on desktop, full width 16:9 on
+ * phones). OpenStreetMap: no API key, no cookies.
  */
 export function EventMap() {
   const { lat, lng } = site.address.geo;

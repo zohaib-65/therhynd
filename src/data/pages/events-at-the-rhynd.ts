@@ -559,7 +559,7 @@ export default {
       actions: [
         {
           label: "Buy now",
-          href: "https://www.therhynd.com/gift-card"
+          href: "mailto:cafe@therhynd.com?subject=Rhynd%20vouchers"
         }
       ]
     }

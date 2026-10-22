@@ -6,7 +6,8 @@ import { useId, useState } from "react";
 import { ChevronDown, Menu } from "lucide-react";
 
 import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { isCurrentPath, type NavItem } from "@/lib/navigation";
+import type { NavItem } from "@/data/navigation";
+import { isCurrentPath } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
 type MobileNavigationProps = {

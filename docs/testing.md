@@ -52,6 +52,12 @@ test's 300ms wait).
   overflow on 72 URLs at 360/768/1024.
 - **Favicon**: `/favicon.ico` (16/32/48px) returns 200 and every page links
   it with the 192px icon and the Apple touch icon.
+- **Browser extensions** (22 Oct 2026): extensions such as ColorZilla add
+  attributes to `<body>` (`cz-shortcut-listen`) before React loads, which
+  React reported as a hydration mismatch. `<html>` and `<body>` now carry
+  `suppressHydrationWarning` (it ignores attribute differences on those two
+  elements only). Simulating the extension on 5 pages × desktop/iPhone: 10
+  hydration errors without it, none with it.
 
 ## Browser checks on the built `out/`
 
@@ -67,7 +73,7 @@ hosts, no raw Markdown or Wix URLs in the visible text, no console errors.
   build and every referenced file exists (including `og:image` tags); pages
   load one file per photo (no `srcset`). Both videos and all 4 PDFs are
   linked.
-- No `static.wixstatic.com` URL anywhere in `src/content/`, the code or `out/`.
+- No `static.wixstatic.com` URL anywhere in `src/data/`, the code or `out/`.
 - `npx knip` (unused files, exports, dependencies): nothing, apart from one
   false positive: `@tailwindcss/turbopack` (the CSS loader named in
   `next.config.ts`).

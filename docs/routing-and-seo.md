@@ -8,7 +8,7 @@ URL.
 
 | Path | Page | Content file | Status |
 |---|---|---|---|
-| `/` | Home | `src/content/pages/home.ts` | built |
+| `/` | Home | `src/data/pages/home.ts` | built |
 | `/what-we-do` | What we do | `what-we-do.ts` | built |
 | `/wild-weddings` | Wild weddings (The Craw's Nest) | `wild-weddings.ts` | built |
 | `/download-our-brochure` | Download our brochure | `download-our-brochure.ts` | built |
@@ -24,9 +24,9 @@ URL.
 | `/activities` | Activities | `activities.ts` | built |
 | `/bacon-and-brakes` | Bacon and Brakes | `bacon-and-brakes.ts` | built |
 | `/sustainability` | Sustainability | `sustainability.ts` | built |
-| `/blog` | News, page 1 | `news.ts` + `src/content/blog.ts` | built |
+| `/blog` | News, page 1 | `news.ts` + `src/data/blog.ts` | built |
 | `/blog/page/2`, `/blog/page/3` | News, pages 2–3 | generated | built |
-| `/post/<slug>` | 28 articles | `src/content/blog.ts` | built |
+| `/post/<slug>` | 28 articles | `src/data/blog.ts` | built |
 | `/weddings` | Weddings | `weddings.ts` | built |
 | `/barn-weddings` | Barn weddings | `barn-weddings.ts` | built |
 | `/awards` | Awards | `awards.ts` | built |
@@ -39,21 +39,21 @@ check").
 
 | Path | Page | Content file | Status |
 |---|---|---|---|
-| `/events/<slug>` | 21 event pages (every event linked from the site, past and upcoming) | `src/content/events.ts` | built |
+| `/events/<slug>` | 21 event pages (every event linked from the site, past and upcoming) | `src/data/events.ts` | built |
 
 Found on the live site but **not part of the agreed inventory**: `/experiences`
 (mobile menu only), `/experience-details`, `/gift-card`, `/online-ordering`,
 `/reservations`, `/book-online`, `/google-ads`, other `/events/<slug>` pages
-not linked from the site, and blog category pages. The two "Buy now" links
-to the gift card page go to the live site (see "Live-only links" below).
+not linked from the site, and blog category pages. The two voucher "Buy now" buttons (Café, Events) open
+an email to cafe@therhynd.com with the subject "Rhynd vouchers".
 
 ## Dynamic routes
 
 | Route | Params | Notes |
 |---|---|---|
 | `src/app/blog/page/[page]` | `generateStaticParams` → 2…n | `dynamicParams = false`; 12 posts per page (`POSTS_PER_PAGE` in `src/lib/news.ts`) |
-| `src/app/post/[slug]` | `generateStaticParams` → every article in `src/content/blog.ts` | `dynamicParams = false`; unknown slugs are 404 |
-| `src/app/events/[slug]` | `generateStaticParams` → every event in `src/content/events.ts` | `dynamicParams = false`; unknown slugs are 404; each page has schema.org `Event` data |
+| `src/app/post/[slug]` | `generateStaticParams` → every article in `src/data/blog.ts` | `dynamicParams = false`; unknown slugs are 404 |
+| `src/app/events/[slug]` | `generateStaticParams` → every event in `src/data/events.ts` | `dynamicParams = false`; unknown slugs are 404; each page has schema.org `Event` data |
 
 Both build to static HTML; nothing renders at request time.
 
@@ -69,12 +69,10 @@ To keep the old inbound link working after launch, add a 301 from `/café`
 (requests arrive as `/caf%C3%A9`) to `/cafe` at the host; a static export
 cannot define redirects (see deployment.md).
 
-## Live-only links
+## Links in content
 
 Content links to pages on this site with local paths (`/cafe`) and to PDFs
-with `/documents/…`. Pages that run on the live platform and are not rebuilt
-(`/gift-card`) are written as full
-`https://www.therhynd.com/…` URLs.
+with `/documents/…`. No content links to the old Wix site.
 
 `src/lib/links.ts` classifies a link: a path is internal, `/documents/…` is a PDF, anything else
 (`mailto:`, `tel:`, other websites) is external. `SmartLink` renders internal paths with `next/link`, PDFs in a new tab with a
@@ -82,7 +80,7 @@ with `/documents/…`. Pages that run on the live platform and are not rebuilt
 
 ## Navigation
 
-Edit `src/lib/navigation.ts` (both menus and the footer read it):
+Edit `src/data/navigation.ts` (both menus and the footer read it):
 
 ```ts
 { label: "Stay", href: "/stay-with-us", children: [

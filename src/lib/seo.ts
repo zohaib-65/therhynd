@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
-import { site, siteUrl } from "@/lib/site";
+import { site } from "@/data/site";
 import { getImage } from "@/lib/assets";
 import type { PageMetadata } from "@/lib/content/schema";
 
 /**
  * Next.js Metadata for a page from its extracted metadata. The title and
  * description are used exactly as extracted; Open Graph falls back to them.
- * The canonical URL is built from NEXT_PUBLIC_SITE_URL (see src/lib/site.ts).
+ * The canonical URL is built from `siteUrl` below.
  */
 export function pageMetadata(meta: PageMetadata): Metadata {
   const ogImage = meta.openGraph?.image ? getImage(meta.openGraph.image) : null;
@@ -26,5 +26,11 @@ export function pageMetadata(meta: PageMetadata): Metadata {
     },
   };
 }
+
+/**
+ * Canonical origin for metadata, sitemap and robots: NEXT_PUBLIC_SITE_URL when
+ * set (e.g. a preview domain), otherwise `site.url` in src/data/site.ts.
+ */
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || site.url).replace(/\/+$/, "");
 
 export const metadataBase = new URL(siteUrl);

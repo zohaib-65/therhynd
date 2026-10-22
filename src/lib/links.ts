@@ -5,8 +5,7 @@ type ResolvedLink =
 
 /**
  * Classify a content link: site paths, PDFs in public/documents, and
- * everything else (mailto:, tel:, other websites, the live-only
- * www.therhynd.com gift card page) as external.
+ * everything else (mailto:, tel:, other websites) as external.
  */
 export function resolveLink(href: string): ResolvedLink {
   if (href.startsWith("/documents/")) return { kind: "document", href };

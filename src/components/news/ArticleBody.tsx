@@ -4,7 +4,7 @@ import { getImage } from "@/lib/assets";
 import type { PostBlock } from "@/lib/news";
 
 /**
- * Renders an article body (an article's `body` in src/content/blog.ts): paragraphs,
+ * Renders an article body (an article's `body` in src/data/blog.ts): paragraphs,
  * subheadings, lists, quotes, rules and images with optional captions.
  * Strings are inline Markdown; an unknown image id fails the build.
  */

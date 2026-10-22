@@ -1,6 +1,6 @@
-import { images } from "@/content/images";
+import { images } from "@/data/images";
 
-/** One entry in src/content/images.ts. */
+/** One entry in src/data/images.ts. */
 export type ImageEntry = {
   src: string;
   width: number;
@@ -20,6 +20,6 @@ const entries: Record<string, ImageEntry> = images;
  */
 export function getImage(id: string): ImageAsset {
   const entry = entries[id];
-  if (!entry) throw new Error(`Unknown image id "${id}" (not in src/content/images.ts)`);
+  if (!entry) throw new Error(`Unknown image id "${id}" (not in src/data/images.ts)`);
   return { id, objectPosition: "center", ...entry };
 }

@@ -192,7 +192,7 @@ export function PageSections({ sections }: { sections: Section[] }) {
       case "relatedPosts": {
         const posts = section.slugs.map((slug) => {
           const post = getPost(slug);
-          if (!post) throw new Error(`relatedPosts: no article "${slug}" in src/content/blog.ts`);
+          if (!post) throw new Error(`relatedPosts: no article "${slug}" in src/data/blog.ts`);
           return post;
         });
         return (

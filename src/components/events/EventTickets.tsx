@@ -14,7 +14,7 @@ import { TextField } from "@/components/forms/TextField";
 import { useFormSubmission } from "@/components/forms/use-form-submission";
 import { useVenueToday } from "@/components/forms/use-venue-today";
 import type { Ticket } from "@/lib/events";
-import { site } from "@/lib/site";
+import { site } from "@/data/site";
 
 /**
  * Renders `children` while tickets are on sale (tickets listed and the event

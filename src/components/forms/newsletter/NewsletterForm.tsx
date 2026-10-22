@@ -8,7 +8,7 @@ import { CheckboxField } from "@/components/forms/CheckboxField";
 import { FormStatus } from "@/components/forms/FormStatus";
 import { SubmitButton } from "@/components/forms/SubmitButton";
 import { TextField } from "@/components/forms/TextField";
-import { site } from "@/lib/site";
+import { site } from "@/data/site";
 import { LIMITS } from "@/components/forms/fields";
 import { newsletterDefaults, newsletterSchema, type NewsletterFormData, type NewsletterFormInput } from "@/components/forms/newsletter/schema";
 import { useFormSubmission } from "@/components/forms/use-form-submission";

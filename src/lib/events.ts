@@ -1,6 +1,6 @@
-import { events } from "@/content/events";
+import { events } from "@/data/events";
 
-/** One ticket type, as listed on the live event page. */
+/** One ticket type. */
 export type Ticket = {
   name: string;
   /** Price per ticket as shown, e.g. "£95.00". */
@@ -10,18 +10,18 @@ export type Ticket = {
 };
 
 /**
- * One block of "About the Event", laid out as the live page's rich text:
+ * One block of "About the Event":
  * blocks are one blank line apart; the lines of a `string[]` block sit
  * directly under each other ("" is an empty line). Strings are inline
  * Markdown (**bold**, *italic*, [label](href)).
  */
 export type AboutBlock = string | string[] | { image: string; alt?: string };
 
-/** One event in src/content/events.ts. */
+/** One event in src/data/events.ts. */
 export type EventEntry = {
   slug: string;
   title: string;
-  /** Meta description, when the live page has one. */
+  /** Meta description (optional). */
   summary?: string;
   /** e.g. "Sat 06 Mar" */
   shortDate: string;
@@ -33,12 +33,12 @@ export type EventEntry = {
   /** ISO date-times with offset (used for "is it past?" and structured data). */
   start: string;
   end: string;
-  /** Image id from src/content/images.ts. */
+  /** Image id from src/data/images.ts. */
   image: string;
   about: AboutBlock[];
   /**
    * Characters (not counting spaces) of "About the Event" shown before
-   * "Read More >", as on the live page. Omit to show it all.
+   * "Read More >". Omit to show it all.
    */
   preview?: number;
   /** Empty when tickets are not on sale. */
@@ -72,7 +72,7 @@ export function firstParagraph(event: EventEntry): string {
 
 /**
  * The collapsed "About the Event": blocks up to `limit` visible characters
- * (spaces not counted). A line cut short ends in "…", as on the live page.
+ * (spaces not counted). A line cut short ends in "…".
  */
 export function previewBlocks(blocks: AboutBlock[], limit: number): AboutBlock[] {
   let left = limit;

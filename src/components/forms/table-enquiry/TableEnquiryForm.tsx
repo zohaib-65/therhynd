@@ -9,7 +9,7 @@ import { SelectField } from "@/components/forms/SelectField";
 import { SubmitButton } from "@/components/forms/SubmitButton";
 import { TextareaField } from "@/components/forms/TextareaField";
 import { TextField } from "@/components/forms/TextField";
-import { site } from "@/lib/site";
+import { site } from "@/data/site";
 import { LIMITS } from "@/components/forms/fields";
 import { enquiryMessages } from "@/components/forms/status-messages";
 import {

@@ -18,8 +18,8 @@ delete.
 | `src/components/forms/` | Field components, submit button, status message, field styles, and one folder per site form (schema + component), shared field and date rules, submission hook |
 | `src/components/events/` | Event page ticket section (`EventTickets`) |
 | `src/components/news/` | News index, cards, article body renderer |
-| `src/lib/` | Content loaders and schemas, News and event loaders, asset lookup, link resolver, form submission adapters and endpoints, navigation links, route list, site facts, SEO helper, utilities |
-| `src/content/` | Page content (`pages/*.ts`), image list (`images.ts`), articles (`blog.ts`), events (`events.ts`) |
+| `src/data/` | **All site data**: page content (`pages/*.ts`), image list (`images.ts`), articles (`blog.ts`), events (`events.ts`), site details (`site.ts`), menus (`navigation.ts`) |
+| `src/lib/` | Code only: content loaders and schemas, News and event loaders, asset lookup, link resolver, form submission adapters and endpoints, menu helpers, route list, SEO helper (`siteUrl`), utilities |
 | `src/styles/` | `globals.css`: Tailwind, brand tokens, shadcn variable mapping |
 | `public/` | Image files (`images/`), videos (`videos/`), PDFs (`documents/`) |
 | `docs/` | This documentation |
@@ -30,21 +30,21 @@ Imports use the `@/` alias, which points at `src/` (`@/lib/news` is
 ## Content flow
 
 ```
-src/content/pages/<page>.ts ──► src/lib/content/pages.ts (Zod parse) ──► src/app/<route>/page.tsx ──► PageSections
-src/content/blog.ts ──► src/lib/news.ts (Zod) ──► /blog, /blog/page/[page], /post/[slug] ──► ArticleBody (blocks → React)
-src/content/pages/home.ts ──► src/lib/content/pages.ts (Zod parse at build) ──► src/app/page.tsx
-src/content/images.ts ──► src/lib/assets.ts getImage(id) ──► ResponsiveImage ──► next/image (unoptimized) ──► /images/<dir>/<name>.webp
-src/lib/site.ts, src/lib/navigation.ts ──► SiteHeader / SiteFooter
+src/data/pages/<page>.ts ──► src/lib/content/pages.ts (Zod parse) ──► src/app/<route>/page.tsx ──► PageSections
+src/data/blog.ts ──► src/lib/news.ts (Zod) ──► /blog, /blog/page/[page], /post/[slug] ──► ArticleBody (blocks → React)
+src/data/pages/home.ts ──► src/lib/content/pages.ts (Zod parse at build) ──► src/app/page.tsx
+src/data/images.ts ──► src/lib/assets.ts getImage(id) ──► ResponsiveImage ──► next/image (unoptimized) ──► /images/<dir>/<name>.webp
+src/data/site.ts, src/data/navigation.ts ──► SiteHeader / SiteFooter
 ```
 
-1. Page copy lives in `src/content/pages/<page>.ts`, copied word for word from
+1. Page copy lives in `src/data/pages/<page>.ts`, copied word for word from
    the live site.
 2. Each file is typed with `satisfies ContentPageInput` (so the editor flags
    mistakes), and `src/lib/content/pages.ts` validates it with the schemas in
    `src/lib/content/schema.ts`. Invalid content fails the build with the file and
    field path.
 3. Page files (`src/app/**/page.tsx`) pick the content apart and compose section
-   components. Image fields are ids from `src/content/images.ts`, resolved with `getImage()`.
+   components. Image fields are ids from `src/data/images.ts`, resolved with `getImage()`.
 4. `next build` renders everything to static HTML in `out/`.
 
 ## Server and Client Components
@@ -104,8 +104,8 @@ modules.
   small component. Home predates this and is composed by hand.
 - **Third-party widgets are not embedded.** Sonas forms became native forms;
   Bookalet and TeamUp became links to the providers; event pages are rebuilt
-  here with a ticket request form (no payments); only the gift card shop
-  links to the live site. The one embed is the OpenStreetMap map on event
+  here with a ticket request form (no payments); voucher "Buy now" opens an
+  email to the café. Nothing links to the old Wix site. The one embed is the OpenStreetMap map on event
   pages (no key, no cookies).
 
 ## Adding a page
@@ -117,13 +117,13 @@ below.
 
 Example: a hypothetical Gift card page.
 
-1. Create `src/content/pages/gift-card.ts`, copying text verbatim from the live
+1. Create `src/data/pages/gift-card.ts`, copying text verbatim from the live
    page.
 2. Add a schema in `src/lib/content/schema.ts` (reuse `headingSchema`,
    `paragraphSchema`, `pageMetadataSchema`) and a loader in
    `src/lib/content/pages.ts`:
    ```ts
-   export const getGiftCardPage = () => parse(giftCardPageSchema, giftCard, "src/content/pages/gift-card.ts");
+   export const getGiftCardPage = () => parse(giftCardPageSchema, giftCard, "src/data/pages/gift-card.ts");
    ```
 3. Add its images (content-and-assets.md, "Adding or replacing an image").
 4. Create `src/app/gift-card/page.tsx`:

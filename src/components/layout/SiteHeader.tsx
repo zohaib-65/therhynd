@@ -3,8 +3,8 @@ import Link from "next/link";
 import { DesktopNavigation } from "@/components/layout/DesktopNavigation";
 import { MobileNavigation } from "@/components/layout/MobileNavigation";
 import { ResponsiveImage } from "@/components/media/ResponsiveImage";
-import { mainNavigation } from "@/lib/navigation";
-import { site } from "@/lib/site";
+import { mainNavigation } from "@/data/navigation";
+import { site } from "@/data/site";
 import { getImage } from "@/lib/assets";
 
 /**

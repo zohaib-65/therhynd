@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { sitePaths } from "@/lib/routes";
-import { siteUrl } from "@/lib/site";
+import { siteUrl } from "@/lib/seo";
 import { getEvents } from "@/lib/events";
 import { getAllPosts, pageCount } from "@/lib/news";
 

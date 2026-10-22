@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 import type { FormStatusMessages } from "@/components/forms/FormStatus";
-import { site } from "@/lib/site";
+import { site } from "@/data/site";
 import type { SubmissionResult } from "@/lib/forms/types";
 
 type Options = {

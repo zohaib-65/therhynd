@@ -7,9 +7,9 @@ custom.
 
 ## How content pages are composed
 
-Content pages (`src/content/pages/<page>.ts` → `sections`) are rendered by
+Content pages (`src/data/pages/<page>.ts` → `sections`) are rendered by
 `src/components/sections/PageSections.tsx`, a Server Component that maps each
-section `type` to one component and resolves image ids from `src/content/images.ts`.
+section `type` to one component and resolves image ids from `src/data/images.ts`.
 Section types and their fields are defined (and validated) in
 `src/lib/content/sections.ts`. Home keeps a hand-composed page (`src/app/page.tsx`).
 
@@ -30,7 +30,7 @@ Section types and their fields are defined (and validated) in
 | `events` | `EventGrid` | `events` (`title`, `date`, `location`, `ribbon`, `image`, `href`), `label` | "Buy Tickets" opens the event's page on this site. |
 | `testimonials` | `TestimonialCarousel` | Events (`photoSide: "left"`), Barn weddings (`photoSide: "right"`, 12 quotes) |
 | `form` | one of the enquiry forms | Brochure, Pricing, Book a viewing, Book a table, Café, Wild weddings, Weddings, Barn weddings |
-| `relatedPosts` | `NewsCard` grid (`slugs` must exist in `src/content/blog.ts`) | Barn weddings |
+| `relatedPosts` | `NewsCard` grid (`slugs` must exist in `src/data/blog.ts`) | Barn weddings |
 | `booking` | `BookingPanel` | Farmhouse, Forest Rooms (Bookalet), Fitness (TeamUp) |
 
 ## Layout (`src/components/layout/`)
@@ -90,7 +90,7 @@ Example (inside a page or a new section type):
 | `Lightbox` (client) | Full-screen viewer (Radix Dialog): focus trapped, Escape/close button, arrow keys and buttons, counter; focus returns to the tile that opened it. |
 | `ImageCarousel` (client) | One photo at a time, scroll-snap, prev/next, "Photo n of N"; no autoplay. |
 | `Banner` | Wide photo; optional muted looping video hidden from assistive tech and not shown with `prefers-reduced-motion`. |
-| `VideoPlayer` | Native controls, `preload="none"`, poster from `src/content/images.ts`; no captions are available for the source film. |
+| `VideoPlayer` | Native controls, `preload="none"`, poster from `src/data/images.ts`; no captions are available for the source film. |
 
 ## Forms
 

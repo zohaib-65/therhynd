@@ -3,7 +3,7 @@ import { z } from "zod";
 import { headingSchema, imageIdSchema, linkSchema, pageMetadataSchema, paragraphSchema } from "@/lib/content/schema";
 
 /**
- * Section types for content pages (src/content/pages/<page>.ts → `sections`).
+ * Section types for content pages (src/data/pages/<page>.ts → `sections`).
  * Each type maps to one component in src/components/sections/PageSections.tsx.
  * Images are manifest ids; links are site paths, PDFs in /documents,
  * mailto:, tel: or other websites.
@@ -199,5 +199,5 @@ export const contentPageSchema = z.object({
 
 export type Section = z.infer<typeof sectionSchema>;
 export type ContentPage = z.infer<typeof contentPageSchema>;
-/** Shape of a src/content/pages/<page>.ts file (before defaults are applied). */
+/** Shape of a src/data/pages/<page>.ts file (before defaults are applied). */
 export type ContentPageInput = z.input<typeof contentPageSchema>;

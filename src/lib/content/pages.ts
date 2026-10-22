@@ -1,31 +1,31 @@
 import { z } from "zod";
 
-import activities from "@/content/pages/activities";
-import awards from "@/content/pages/awards";
-import baconAndBrakes from "@/content/pages/bacon-and-brakes";
-import barnWeddings from "@/content/pages/barn-weddings";
-import bookATable from "@/content/pages/book-a-table";
-import bookAViewing from "@/content/pages/book-a-viewing";
-import cafe from "@/content/pages/cafe";
-import downloadOurBrochure from "@/content/pages/download-our-brochure";
-import events from "@/content/pages/events-at-the-rhynd";
-import history from "@/content/pages/history";
-import homeJson from "@/content/pages/home";
-import newsJson from "@/content/pages/news";
-import pricing from "@/content/pages/pricing";
-import farmhouse from "@/content/pages/rhynd-farmhouse";
-import fitness from "@/content/pages/rhynd-fitness";
-import forestRooms from "@/content/pages/rhynd-forest-rooms";
-import stayWithUs from "@/content/pages/stay-with-us";
-import sustainability from "@/content/pages/sustainability";
-import weddings from "@/content/pages/weddings";
-import whatWeDo from "@/content/pages/what-we-do";
-import wildWeddings from "@/content/pages/wild-weddings";
+import activities from "@/data/pages/activities";
+import awards from "@/data/pages/awards";
+import baconAndBrakes from "@/data/pages/bacon-and-brakes";
+import barnWeddings from "@/data/pages/barn-weddings";
+import bookATable from "@/data/pages/book-a-table";
+import bookAViewing from "@/data/pages/book-a-viewing";
+import cafe from "@/data/pages/cafe";
+import downloadOurBrochure from "@/data/pages/download-our-brochure";
+import events from "@/data/pages/events-at-the-rhynd";
+import history from "@/data/pages/history";
+import homeJson from "@/data/pages/home";
+import newsJson from "@/data/pages/news";
+import pricing from "@/data/pages/pricing";
+import farmhouse from "@/data/pages/rhynd-farmhouse";
+import fitness from "@/data/pages/rhynd-fitness";
+import forestRooms from "@/data/pages/rhynd-forest-rooms";
+import stayWithUs from "@/data/pages/stay-with-us";
+import sustainability from "@/data/pages/sustainability";
+import weddings from "@/data/pages/weddings";
+import whatWeDo from "@/data/pages/what-we-do";
+import wildWeddings from "@/data/pages/wild-weddings";
 import { homePageSchema, pageMetadataSchema } from "@/lib/content/schema";
 import { contentPageSchema, type ContentPage } from "@/lib/content/sections";
 
 /**
- * Page content loaders. Each parses its src/content/pages/<page>.ts file against
+ * Page content loaders. Each parses its src/data/pages/<page>.ts file against
  * the schemas in src/lib/content during the build (Server Components only), so
  * invalid content fails the build with the file and field path. The files
  * are also type-checked against the same schemas while editing.
@@ -39,10 +39,10 @@ function parse<T extends z.ZodType>(schema: T, data: unknown, file: string): z.o
   return result.data;
 }
 
-export const getHomePage = () => parse(homePageSchema, homeJson, "src/content/pages/home.ts");
+export const getHomePage = () => parse(homePageSchema, homeJson, "src/data/pages/home.ts");
 
-/** Metadata for the News index (its cards come from src/content/blog.ts). */
-export const getNewsPageMetadata = () => parse(z.object({ metadata: pageMetadataSchema }), newsJson, "src/content/pages/news.ts").metadata;
+/** Metadata for the News index (its cards come from src/data/blog.ts). */
+export const getNewsPageMetadata = () => parse(z.object({ metadata: pageMetadataSchema }), newsJson, "src/data/pages/news.ts").metadata;
 
 /** Content pages built from sections, keyed by their file name. */
 const contentPages = {
@@ -70,5 +70,5 @@ const contentPages = {
 type ContentPageKey = keyof typeof contentPages;
 
 export function getContentPage(key: ContentPageKey): ContentPage {
-  return parse(contentPageSchema, contentPages[key], `src/content/pages/${key}.ts`);
+  return parse(contentPageSchema, contentPages[key], `src/data/pages/${key}.ts`);
 }

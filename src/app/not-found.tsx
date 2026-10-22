@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 import { Button } from "@/components/ui/button";
-import { mainNavigation } from "@/lib/navigation";
+import { mainNavigation } from "@/data/navigation";
 
 export const metadata: Metadata = {
   title: "Page not found",
