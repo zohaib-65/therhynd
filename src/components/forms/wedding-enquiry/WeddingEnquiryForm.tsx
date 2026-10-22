@@ -5,7 +5,6 @@ import { useId } from "react";
 import { useForm } from "react-hook-form";
 
 import { CheckboxField } from "@/components/forms/CheckboxField";
-import { FormStatus } from "@/components/forms/FormStatus";
 import { SubmitButton } from "@/components/forms/SubmitButton";
 import { TextareaField } from "@/components/forms/TextareaField";
 import { TextField } from "@/components/forms/TextField";
@@ -28,8 +27,9 @@ export function WeddingEnquiryForm() {
     mode: "onTouched",
   });
   const { register, control, formState } = methods;
-  const { status, result, onSubmit, isSubmitting } = useFormSubmission("weddingEnquiry", methods, {
+  const { onSubmit, isSubmitting } = useFormSubmission("weddingEnquiry", methods, {
     toPayload: (data) => ({ _subject: "Wild wedding enquiry (The Craw's Nest)", ...data }),
+    messages: enquiryMessages({ noun: "enquiry", success: "Thank you. Your enquiry has been sent to the team." }),
   });
 
   return (
@@ -71,12 +71,6 @@ export function WeddingEnquiryForm() {
           Send
         </SubmitButton>
       </div>
-      <FormStatus
-        className="md:col-span-2"
-        status={status}
-        detail={result?.status === "error" ? result.message : undefined}
-        messages={enquiryMessages({ noun: "enquiry", success: "Thank you. Your enquiry has been sent to the team.", result })}
-      />
     </form>
   );
 }

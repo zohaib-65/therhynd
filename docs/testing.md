@@ -4,7 +4,7 @@ Latest run: 20 October 2026, after moving the articles to `.ts` files and
 removing the unit tests (on request). Every check below was re-run on that
 build. macOS, Node 24.20.0,
 headless Chrome driven by Playwright scripts (kept outside the repository).
-No live form was submitted; every Formspree request in the tests was
+No live form was submitted; every request in the tests was
 intercepted in the browser.
 
 ## Commands
@@ -52,6 +52,13 @@ test's 300ms wait).
   overflow on 72 URLs at 360/768/1024.
 - **Favicon**: `/favicon.ico` (16/32/48px) returns 200 and every page links
   it with the 192px icon and the Apple touch icon.
+- **Forms, loaders and toasts** (22 Oct 2026, 86 checks, desktop and
+  iPhone 13): all seven forms (footer contact, mailing list, brochure,
+  viewing, wild weddings, table, event tickets): an empty submit flags the
+  fields and shows no toast; a valid submit spins the button and shows a
+  "Sending your …" toast, which turns into the "isn’t connected yet" toast;
+  the button is ready again, the values are kept, no console errors; no
+  network request is made by any form.
 - **Browser extensions** (22 Oct 2026): extensions such as ColorZilla add
   attributes to `<body>` (`cz-shortcut-listen`) before React loads, which
   React reported as a hydration mismatch. `<html>` and `<body>` now carry
@@ -144,14 +151,14 @@ lands on `/cafe`; refresh works.
   mailto to events@.
 - Wild weddings: carousel Next shows "Photo 2 of 4"; empty submit gives five
   errors (one each) and focuses Name; fractional guests rejected;
-  not-configured message.
+  "not connected" message.
 - Book a viewing: date `min` equals today at the venue; past date rejected;
   8 "heard about" options; Craw's Nest note with events@.
 - Book a table: party sizes 1–10 and 13 time slots as on the live widget;
-  not-configured message offers cafe@therhynd.com.
+  "not connected" message offers cafe@therhynd.com.
 - Pricing: event types match the live form; marketing box starts unticked.
-- Café: menu PDF local and served; vouchers "Buy now" goes to the live gift
-  card page.
+- Café: menu PDF local and served; vouchers "Buy now" opens an email to
+  cafe@therhynd.com.
 - Events: 14 "Buy Tickets" links to this site's event pages, each 200; testimonial Next
   changes the quote.
 - Navigation: Stay dropdown → Forest Rooms (client navigation); Café link →
@@ -162,10 +169,11 @@ lands on `/cafe`; refresh works.
 
 **Phase 1 regression** (30 checks, all pass): header dropdowns (hover, focus,
 Escape, ArrowDown), skip link, mobile menu, mailing-list and footer form
-validation and not-configured states, 404 page, no duplicate ids.
+validation and "not connected" states, 404 page, no duplicate ids.
 
-**Submissions with endpoints configured** (separate build with dummy
-Formspree URLs; requests intercepted):
+**Submissions with endpoints configured** (October 2026, before the
+Formspree adapter was removed; separate build with dummy URLs, requests
+intercepted):
 - Viewing: posts trimmed data with the date exactly as entered; success says
   "received and is awaiting confirmation … No appointment is booked until
   they confirm it"; form resets.

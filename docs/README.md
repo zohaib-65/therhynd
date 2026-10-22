@@ -21,7 +21,7 @@ click-tested on the static build. Awaiting review. See
 | UI primitives | shadcn/ui 4.22 (Radix), restyled to the brand |
 | Icons | lucide-react 1.59 |
 | Forms | React Hook Form 7.90 + Zod 4.6 via @hookform/resolvers 5.9 |
-| Form delivery | Formspree-compatible adapter, seven forms (endpoints not yet configured) |
+| Form delivery | Seven forms with loading button and sonner toasts; one `submitForm()` to connect the backend (not connected yet) |
 | Content | Typed `.ts` content files (pages, articles, events, images) validated with Zod |
 | Images | One local WebP file per photo; `next/image` unoptimized |
 | Checks | Lint, typecheck, build; Playwright browser checks (see testing.md) |

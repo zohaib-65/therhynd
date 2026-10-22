@@ -28,10 +28,7 @@ npm run build && npm run preview     # http://localhost:3000
 Set these in the host's build environment (see setup.md); they are inlined at
 build time:
 
-- `NEXT_PUBLIC_SITE_URL`: the production origin (e.g. `https://www.therhynd.com`).
 - `NEXT_PUBLIC_ALLOW_INDEXING=true` on production only.
-- `NEXT_PUBLIC_FORM_*_ENDPOINT`: Formspree endpoints (optional; forms say
-  sending is unavailable until set).
 - Node 24 (`NODE_VERSION=24` on Netlify/Cloudflare).
 
 ## Vercel
@@ -82,9 +79,10 @@ Pages strips `.html` (serving `weddings.html` at `/weddings`) and serves
 ## Launch checklist
 
 1. `npm run check` green (all routes are built).
-2. Formspree endpoints created and tested with a real submission.
-3. `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_ALLOW_INDEXING=true` set on
-   production.
+2. Backend connected in `src/lib/forms/submit.ts` and one real submission
+   tested per form (until then forms say sending isn’t connected).
+3. `url` in `src/data/site.ts` is the production address, and
+   `NEXT_PUBLIC_ALLOW_INDEXING=true` is set on production only.
 4. Domain pointed at the host; HTTPS active.
 5. Check `/robots.txt` allows crawling and `/sitemap.xml` lists every route.
 6. Submit the sitemap in Google Search Console.

@@ -5,12 +5,11 @@ import { useId } from "react";
 import { useForm } from "react-hook-form";
 
 import { CheckboxField } from "@/components/forms/CheckboxField";
-import { FormStatus } from "@/components/forms/FormStatus";
 import { SubmitButton } from "@/components/forms/SubmitButton";
 import { TextField } from "@/components/forms/TextField";
-import { site } from "@/data/site";
 import { LIMITS } from "@/components/forms/fields";
 import { newsletterDefaults, newsletterSchema, type NewsletterFormData, type NewsletterFormInput } from "@/components/forms/newsletter/schema";
+import { enquiryMessages } from "@/components/forms/status-messages";
 import { useFormSubmission } from "@/components/forms/use-form-submission";
 
 /**
@@ -25,8 +24,9 @@ export function NewsletterForm() {
     mode: "onTouched",
   });
   const { register, control, formState } = methods;
-  const { status, result, onSubmit, isSubmitting } = useFormSubmission("newsletter", methods, {
+  const { onSubmit, isSubmitting } = useFormSubmission("newsletter", methods, {
     toPayload: (data) => ({ _subject: "Mailing list sign-up from the website", ...data }),
+    messages: enquiryMessages({ noun: "sign-up", success: "Thank you. Your details have been sent to The Rhynd.", phone: false }),
   });
 
   return (
@@ -80,27 +80,6 @@ export function NewsletterForm() {
       <div className="md:col-span-2">
         <CheckboxField id={`${id}-consent`} name="consent" control={control} label="I want to subscribe to your mailing list." required />
       </div>
-      <FormStatus
-        className="md:col-span-2"
-        status={status}
-        detail={result?.status === "error" ? result.message : undefined}
-        messages={{
-          success: "Thank you. Your details have been sent to The Rhynd.",
-          notConfigured: (
-            <>
-              Online sign-up isn’t connected yet, so your details have not been sent. To join the mailing list, email{" "}
-              <a href={site.email.href} className="underline">
-                {site.email.address}
-              </a>
-              .
-            </>
-          ),
-          error:
-            result?.status === "error" && result.reason === "network"
-              ? "Your details couldn’t be sent. Check your connection and try again."
-              : "Your details couldn’t be sent. Please check the form and try again.",
-        }}
-      />
     </form>
   );
 }

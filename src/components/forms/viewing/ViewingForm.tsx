@@ -5,7 +5,6 @@ import { useId } from "react";
 import { useForm } from "react-hook-form";
 
 import { CheckboxField } from "@/components/forms/CheckboxField";
-import { FormStatus } from "@/components/forms/FormStatus";
 import { SelectField } from "@/components/forms/SelectField";
 import { SubmitButton } from "@/components/forms/SubmitButton";
 import { TextareaField } from "@/components/forms/TextareaField";
@@ -26,8 +25,12 @@ export function ViewingForm() {
     mode: "onTouched",
   });
   const { register, control, formState } = methods;
-  const { status, result, onSubmit, isSubmitting } = useFormSubmission("viewingEnquiry", methods, {
+  const { onSubmit, isSubmitting } = useFormSubmission("viewingEnquiry", methods, {
     toPayload: (data) => ({ _subject: "Viewing request from the website", ...data }),
+    messages: enquiryMessages({
+      noun: "viewing request",
+      success: "Thank you. Your viewing request has been received and is awaiting confirmation from the team. No appointment is booked until they confirm it.",
+    }),
   });
 
   return (
@@ -86,16 +89,6 @@ export function ViewingForm() {
           Submit
         </SubmitButton>
       </div>
-      <FormStatus
-        className="md:col-span-2"
-        status={status}
-        detail={result?.status === "error" ? result.message : undefined}
-        messages={enquiryMessages({
-          noun: "viewing request",
-          success: "Thank you. Your viewing request has been received and is awaiting confirmation from the team. No appointment is booked until they confirm it.",
-          result,
-        })}
-      />
     </form>
   );
 }

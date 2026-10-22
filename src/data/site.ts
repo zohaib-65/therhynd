@@ -6,8 +6,7 @@
 
 export const site = {
   name: "The Rhynd",
-  /** The site's own address, used for canonical links, the sitemap and share
-   * links. NEXT_PUBLIC_SITE_URL overrides it (e.g. for a preview domain). */
+  /** The site's own address, used for canonical links, the sitemap and share links. */
   url: "https://www.therhynd.com",
   locale: "en_GB",
   address: {

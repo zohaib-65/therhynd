@@ -4,13 +4,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useId } from "react";
 import { useForm } from "react-hook-form";
 
-import { FormStatus } from "@/components/forms/FormStatus";
 import { SubmitButton } from "@/components/forms/SubmitButton";
-import { TextareaField } from "@/components/forms/TextareaField";
 import { TextField } from "@/components/forms/TextField";
-import { site } from "@/data/site";
 import { contactDefaults, contactSchema, type ContactFormData, type ContactFormInput } from "@/components/forms/contact/schema";
 import { LIMITS } from "@/components/forms/fields";
+import { enquiryMessages } from "@/components/forms/status-messages";
 import { useFormSubmission } from "@/components/forms/use-form-submission";
 
 /**
@@ -25,23 +23,10 @@ export function ContactForm() {
     mode: "onTouched",
   });
   const { register, formState } = methods;
-  const { status, result, onSubmit, isSubmitting } = useFormSubmission("contact", methods, {
+  const { onSubmit, isSubmitting } = useFormSubmission("contact", methods, {
     toPayload: (data) => ({ _subject: "Message from the website contact form", ...data }),
+    messages: enquiryMessages({ noun: "message", success: "Thank you. Your message has been sent." }),
   });
-
-  const alternative = (
-    <>
-      email{" "}
-      <a href={site.email.href} className="underline">
-        {site.email.address}
-      </a>{" "}
-      or call{" "}
-      <a href={site.phone.href} className="underline">
-        {site.phone.display}
-      </a>{" "}
-      {site.phone.note}
-    </>
-  );
 
   return (
     <form onSubmit={onSubmit} noValidate aria-label="Contact us" className="grid gap-x-3 gap-y-3 sm:grid-cols-2 desktop:grid-cols-2">
@@ -76,11 +61,12 @@ export function ContactForm() {
         registration={register("phone")}
         error={formState.errors.phone}
       />
-      <TextareaField
+      {/* One line, as on the live footer: long text scrolls sideways, the box never grows. */}
+      <TextField
         id={`${id}-message`}
         label="Ask away!"
         appearance="outlined"
-        rows={1}
+        autoComplete="off"
         maxLength={LIMITS.message}
         registration={register("message")}
         error={formState.errors.message}
@@ -90,21 +76,6 @@ export function ContactForm() {
           Send
         </SubmitButton>
       </div>
-      <FormStatus
-        className="sm:col-span-2"
-        status={status}
-        detail={result?.status === "error" ? result.message : undefined}
-        messages={{
-          success: "Thank you. Your message has been sent.",
-          notConfigured: <>Online sending isn’t connected yet, so your message has not been sent. Please {alternative}.</>,
-          error:
-            result?.status === "error" && result.reason === "network" ? (
-              <>Your message couldn’t be sent. Check your connection and try again, or {alternative}.</>
-            ) : (
-              <>Your message couldn’t be sent. Please check the form and try again, or {alternative}.</>
-            ),
-        }}
-      />
     </form>
   );
 }

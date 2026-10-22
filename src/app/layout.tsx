@@ -3,6 +3,7 @@ import { Jost } from "next/font/google";
 
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { Toaster } from "@/components/ui/sonner";
 import { site } from "@/data/site";
 import { metadataBase } from "@/lib/seo";
 import "@/styles/globals.css";
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <SiteFooter />
+        <Toaster />
       </body>
     </html>
   );

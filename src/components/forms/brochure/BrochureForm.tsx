@@ -5,7 +5,6 @@ import { useId } from "react";
 import { useForm } from "react-hook-form";
 
 import { CheckboxField } from "@/components/forms/CheckboxField";
-import { FormStatus } from "@/components/forms/FormStatus";
 import { SelectField } from "@/components/forms/SelectField";
 import { SubmitButton } from "@/components/forms/SubmitButton";
 import { TextareaField } from "@/components/forms/TextareaField";
@@ -29,8 +28,9 @@ export function BrochureForm({ source }: BrochureFormProps) {
     mode: "onTouched",
   });
   const { register, control, formState } = methods;
-  const { status, result, onSubmit, isSubmitting } = useFormSubmission("brochure", methods, {
+  const { onSubmit, isSubmitting } = useFormSubmission("brochure", methods, {
     toPayload: (data) => ({ _subject: `Brochure request (${source} page)`, page: source, ...data }),
+    messages: enquiryMessages({ noun: "request", success: "Thank you. Your brochure request has been sent to The Rhynd." }),
   });
 
   return (
@@ -59,12 +59,6 @@ export function BrochureForm({ source }: BrochureFormProps) {
           Submit
         </SubmitButton>
       </div>
-      <FormStatus
-        className="md:col-span-2"
-        status={status}
-        detail={result?.status === "error" ? result.message : undefined}
-        messages={enquiryMessages({ noun: "request", success: "Thank you. Your brochure request has been sent to The Rhynd.", result })}
-      />
     </form>
   );
 }

@@ -24,17 +24,12 @@ visible to visitors, so never put secrets in them.
 
 | Variable | Default | Purpose |
 |---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | `https://www.therhynd.com` | Origin for canonical URLs, Open Graph URLs, sitemap, robots |
 | `NEXT_PUBLIC_ALLOW_INDEXING` | unset (= disallow) | `true` on the production build only; anything else makes robots.txt disallow all |
-| `NEXT_PUBLIC_FORM_CONTACT_ENDPOINT` | unset | Formspree URL for the footer contact form |
-| `NEXT_PUBLIC_FORM_NEWSLETTER_ENDPOINT` | unset | Formspree URL for the mailing-list form |
-| `NEXT_PUBLIC_FORM_BROCHURE_ENDPOINT` | unset | Brochure request (Download our brochure, Pricing) |
-| `NEXT_PUBLIC_FORM_VIEWING_ENQUIRY_ENDPOINT` | unset | Book a viewing |
-| `NEXT_PUBLIC_FORM_WEDDING_ENQUIRY_ENDPOINT` | unset | Wild weddings enquiry |
-| `NEXT_PUBLIC_FORM_TABLE_ENQUIRY_ENDPOINT` | unset | Table request (Book a table, Café) |
-| `NEXT_PUBLIC_FORM_EVENT_TICKETS_ENDPOINT` | unset | Ticket requests on event pages |
 
-Changing a variable requires a rebuild.
+Changing a variable requires a rebuild. The site's address (canonical URLs,
+Open Graph, sitemap) is `url` in `src/data/site.ts`, not a variable. Forms
+need no variables: see
+forms-and-validation.md → Connecting the backend.
 
 ## Commands
 

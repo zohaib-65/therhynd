@@ -101,7 +101,7 @@ Labels display in capitals via CSS; write them in normal case.
 - Articles: live meta description, or the article's own opening text
   (truncated at 160 characters) when the live post has none; `og:type`
   `article` with published/modified times.
-- Canonical and `og:url`: `NEXT_PUBLIC_SITE_URL` + path.
+- Canonical and `og:url`: `url` in `src/data/site.ts` + path.
 - Open Graph title/description: the live `og:*` values where they differ from
   the page title/description (e.g. Stay, Forest Rooms).
 - `og:image`: none of the live pages declare one; each page uses a photo from

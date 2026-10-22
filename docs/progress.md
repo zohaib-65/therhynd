@@ -18,16 +18,16 @@ Last updated: 20 October 2026.
 | Route | Implementation | Content / image gaps | Desktop / mobile checked | Integration still needed |
 |---|---|---|---|---|
 | `/what-we-do` | complete | no live meta description (intro text used); card links added to the matching pages | yes / yes | — |
-| `/wild-weddings` | complete | — | yes / yes | Formspree endpoint (wedding enquiry) |
-| `/download-our-brochure` | complete | brochure PDF not public (sent by the live widget) | yes / yes | Formspree endpoint (brochure); brochure delivery |
-| `/copy-of-download-our-brochure` | complete | as above; no price table exists on the live page | yes / yes | Formspree endpoint (brochure) |
-| `/book-a-viewing` | complete | live availability picker replaced by a preferred date | yes / yes | Formspree endpoint (viewing) |
-| `/events-at-the-rhynd` | complete | dates shown as listed (no year); "Buy Tickets" opens our own event pages | yes / yes | Formspree endpoint (event tickets) |
+| `/wild-weddings` | complete | — | yes / yes | backend (wedding enquiry form) |
+| `/download-our-brochure` | complete | brochure PDF not public (sent by the live widget) | yes / yes | backend (brochure form); brochure delivery |
+| `/copy-of-download-our-brochure` | complete | as above; no price table exists on the live page | yes / yes | backend (brochure form) |
+| `/book-a-viewing` | complete | live availability picker replaced by a preferred date | yes / yes | backend (viewing form) |
+| `/events-at-the-rhynd` | complete | dates shown as listed (no year); "Buy Tickets" opens our own event pages | yes / yes | backend (event tickets form) |
 | `/stay-with-us` | complete | — | yes / yes | — |
 | `/rhynd-farmhouse` | complete | live Bookalet calendar replaced by a link | yes / yes | Bookalet (link verified) |
 | `/rhynd-forest-rooms` | complete | as above | yes / yes | Bookalet (link verified) |
-| `/cafe` | complete | — | yes / yes | Formspree endpoint (table) |
-| `/book-a-table` | complete | widget's contact step not captured; fields assumed | yes / yes | Formspree endpoint (table) |
+| `/cafe` | complete | — | yes / yes | backend (table form) |
+| `/book-a-table` | complete | widget's contact step not captured; fields assumed | yes / yes | backend (table form) |
 | `/rhynd-fitness` | complete | TeamUp timetable replaced by a link | yes / yes | TeamUp (link verified) |
 | `/activities` | complete | — | yes / yes | — |
 | `/bacon-and-brakes` | complete | — | yes / yes | — |
@@ -38,8 +38,8 @@ Last updated: 20 October 2026.
 
 | Route | Implementation | Content / image gaps | Desktop / mobile checked | Integration still needed |
 |---|---|---|---|---|
-| `/weddings` | complete | "Explore Wild Weddings" has no link on the live page; linked to `/wild-weddings` | yes / yes | Formspree endpoint (brochure) |
-| `/barn-weddings` | complete | two live testimonials repeat names used elsewhere ("Joanna and Sean", "Jayne and Drew"), kept as published | yes / yes | Formspree endpoint (brochure) |
+| `/weddings` | complete | "Explore Wild Weddings" has no link on the live page; linked to `/wild-weddings` | yes / yes | backend (brochure form) |
+| `/barn-weddings` | complete | two live testimonials repeat names used elsewhere ("Joanna and Sean", "Jayne and Drew"), kept as published | yes / yes | backend (brochure form) |
 | `/awards` | complete | live typo "luck enough" kept | yes / yes | — |
 | `/history` | complete | — | yes / yes | — |
 
@@ -78,7 +78,8 @@ Last updated: 20 October 2026.
 
 ## Next
 
-1. Connect Formspree endpoints and test one real submission per form.
+1. Connect the backend in `src/lib/forms/submit.ts` (one function) and test
+   one real submission per form.
 2. Add the Playwright checks (routes, link check, interactions) as
    `npm run test:e2e`; screen-reader pass.
 3. Decide on the live-only pages (gift card, experiences, online ordering).

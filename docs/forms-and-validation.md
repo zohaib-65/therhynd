@@ -59,7 +59,7 @@ country picker.
 
 ### Contact (footer): `ContactForm` → `contact`
 
-Name, Email\*, Phone Number, "Ask away!" (one-row textarea).
+Name, Email\*, Phone Number, "Ask away!" (one-line input as on the live footer: long text scrolls sideways, the box never grows).
 
 ### Brochure request (Download our brochure, Pricing): `BrochureForm` → `brochure`
 
@@ -152,39 +152,39 @@ the Events page gives for ticket questions).
 
 ## Submission states
 
+Feedback is a loading button plus toasts (sonner, `src/components/ui/sonner.tsx`,
+rendered once in the root layout and announced by its live region).
+
 | State | When | What the visitor sees |
 |---|---|---|
 | Ready | initial | the form |
-| Invalid input | schema fails | inline errors, focus on the first; nothing sent |
-| Submitting | in flight | "Sending…"; submit `aria-disabled`; repeat clicks/Enter ignored |
-| Accepted | 2xx **and** `{ "ok": true }` | form-specific success message; form resets |
-| Failure | 4xx/5xx, network, or 2xx without `ok: true` | error with email (and phone) alternative; values kept; provider field errors mapped to fields |
-| Not configured | no endpoint | "Online sending isn’t connected yet, so your … has not been sent" + alternative (`cafe@therhynd.com` for tables, otherwise `weddings@therhynd.com` and the phone number) |
+| Invalid input | schema fails | inline errors, focus on the first; nothing sent; no toast |
+| Sending | in flight | spinner on the submit button (`aria-disabled`, repeat clicks/Enter ignored) and a "Sending your …" toast |
+| Success | backend says success | the same toast turns into the form's success message; form resets |
+| Error | backend error or no response | error toast with email (and phone) alternative; values kept; backend field errors put on the fields |
+| Not connected | no backend yet (now) | toast "Online sending isn’t connected yet, so your … has not been sent" + alternative (`cafe@therhynd.com` for tables and tickets, otherwise `weddings@therhynd.com` and the phone number); values kept |
 
-## Provider configuration
+## Connecting the backend
 
-`src/lib/forms/formspree.ts` implements Formspree's JSON contract. One environment
-variable per form (all public, inlined at build):
+The frontend holds no service addresses or keys. Every form calls one
+function, `submitForm(form, payload)` in `src/lib/forms/submit.ts`. Today it
+sends nothing: after a short pause (so the loader shows) it returns
+`{ status: "not-connected" }`. To connect the backend, replace its body with
+the API call and map the response to `SubmissionResult`
+(`src/lib/forms/types.ts`):
 
-| Variable | Form |
-|---|---|
-| `NEXT_PUBLIC_FORM_CONTACT_ENDPOINT` | footer contact |
-| `NEXT_PUBLIC_FORM_NEWSLETTER_ENDPOINT` | mailing list |
-| `NEXT_PUBLIC_FORM_BROCHURE_ENDPOINT` | brochure (Download our brochure and Pricing) |
-| `NEXT_PUBLIC_FORM_VIEWING_ENQUIRY_ENDPOINT` | Book a viewing |
-| `NEXT_PUBLIC_FORM_WEDDING_ENQUIRY_ENDPOINT` | Wild weddings |
-| `NEXT_PUBLIC_FORM_TABLE_ENQUIRY_ENDPOINT` | Book a table and Café |
-| `NEXT_PUBLIC_FORM_EVENT_TICKETS_ENDPOINT` | Ticket requests on event pages |
+- `{ status: "success" }`
+- `{ status: "error", fieldErrors?, message? }` (field names as in the
+  payloads; `message` shows under the error toast)
 
-Example: `NEXT_PUBLIC_FORM_VIEWING_ENQUIRY_ENDPOINT=https://formspree.io/f/abcdwxyz`,
-then rebuild. Several variables may point at the same Formspree form; the
-`_subject` field tells the requests apart.
+Nothing else changes: forms, loaders and toasts already use that result.
+`form` is one of `contact`, `newsletter`, `brochure`, `viewingEnquiry`,
+`weddingEnquiry`, `tableEnquiry`, `eventTickets`; payloads are the validated
+fields plus `_subject` (and `page`, `event`, `eventDate`, `total` where
+listed above).
 
-To use another provider, write a `SubmissionAdapter` (`src/lib/forms/types.ts`)
-and pass it as the default in `src/lib/forms/submit.ts`.
-
-**Validation boundary.** Client-side rules can be bypassed; the receiving
-service must enforce its own validation and spam protection. Submitted data
+**Validation boundary.** Client-side rules can be bypassed; the backend
+must enforce its own validation and spam protection. Submitted data
 is never logged by this code.
 
 ## Adding or changing a field

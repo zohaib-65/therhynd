@@ -97,7 +97,7 @@ Example (inside a page or a new section type):
 Shared field components in `src/components/forms/`: `TextField` (text, email,
 tel, date, number), `TextareaField`, `SelectField` (shadcn NativeSelect,
 registered with RHF), `CheckboxField` (Controller), `FieldShell`,
-`SubmitButton`, `FormStatus`; appearances `underline`, `outlined`, `boxed`.
+`SubmitButton` (spinner while sending); results are sonner toasts (`src/components/ui/sonner.tsx`); appearances `underline`, `outlined`, `boxed`.
 
 Site forms in `src/components/forms/`: `contact/`, `newsletter/`, `brochure/`,
 `viewing/`, `wedding-enquiry/`, `table-enquiry/` (schema + component each),

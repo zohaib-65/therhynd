@@ -1,22 +1,20 @@
 import type { ReactNode } from "react";
 
-import type { FormStatusMessages } from "@/components/forms/FormStatus";
+import type { FormMessages } from "@/components/forms/use-form-submission";
 import { site } from "@/data/site";
-import type { SubmissionResult } from "@/lib/forms/types";
 
 type Options = {
-  /** What was sent, e.g. "request", "enquiry". */
+  /** What is sent, e.g. "request", "enquiry", "message". */
   noun: string;
   success: ReactNode;
-  /** Email address offered when online sending is unavailable. */
+  /** Email address offered when sending is not possible. */
   email?: string;
   /** Also offer the phone number. */
   phone?: boolean;
-  result: SubmissionResult | null;
 };
 
-/** Status messages for enquiry forms, with an email/phone fallback. */
-export function enquiryMessages({ noun, success, email = site.email.address, phone = true, result }: Options): FormStatusMessages {
+/** Toast texts for a form, with an email/phone fallback when sending fails. */
+export function enquiryMessages({ noun, success, email = site.email.address, phone = true }: Options): FormMessages {
   const alternative = (
     <>
       email{" "}
@@ -36,21 +34,17 @@ export function enquiryMessages({ noun, success, email = site.email.address, pho
     </>
   );
   return {
+    sending: `Sending your ${noun}…`,
     success,
-    notConfigured: (
+    notConnected: (
       <>
         Online sending isn’t connected yet, so your {noun} has not been sent. Please {alternative}.
       </>
     ),
-    error:
-      result?.status === "error" && result.reason === "network" ? (
-        <>
-          Your {noun} couldn’t be sent. Check your connection and try again, or {alternative}.
-        </>
-      ) : (
-        <>
-          Your {noun} couldn’t be sent. Please check the form and try again, or {alternative}.
-        </>
-      ),
+    error: (
+      <>
+        Your {noun} couldn’t be sent. Please try again, or {alternative}.
+      </>
+    ),
   };
 }

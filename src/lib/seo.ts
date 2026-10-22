@@ -27,10 +27,7 @@ export function pageMetadata(meta: PageMetadata): Metadata {
   };
 }
 
-/**
- * Canonical origin for metadata, sitemap and robots: NEXT_PUBLIC_SITE_URL when
- * set (e.g. a preview domain), otherwise `site.url` in src/data/site.ts.
- */
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || site.url).replace(/\/+$/, "");
+/** Canonical origin for metadata, sitemap and robots: `site.url` in src/data/site.ts. */
+export const siteUrl = site.url.replace(/\/+$/, "");
 
 export const metadataBase = new URL(siteUrl);

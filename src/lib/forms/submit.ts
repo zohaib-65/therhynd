@@ -1,23 +1,20 @@
-import { formEndpoints } from "@/lib/forms/endpoints";
-import { submitToFormspree } from "@/lib/forms/formspree";
-import type { FormKey, SubmissionAdapter, SubmissionPayload, SubmissionResult } from "@/lib/forms/types";
+import type { FormKey, SubmissionPayload, SubmissionResult } from "@/lib/forms/types";
+
+/** How long the loader shows while no backend is connected. Remove with the placeholder below. */
+const PLACEHOLDER_DELAY_MS = 800;
 
 /**
- * Send a form's validated data to its configured endpoint. This is the one
- * place that knows which provider is used; swap `adapter` to change it.
- * Returns "not-configured" without a network request when the form has no
- * endpoint, so the site still works before a provider is set up.
+ * Sends one form's validated data. This is the only place to connect the
+ * backend: replace the body with the API call for `form` (sending `payload`)
+ * and map its response to a SubmissionResult. Every form, its loader and its
+ * toasts already work from that result.
+ *
+ * Until then nothing is sent and every form reports "not-connected", never a
+ * made-up success.
  */
-export async function submitForm(
-  form: FormKey,
-  payload: SubmissionPayload,
-  {
-    endpoints = formEndpoints,
-    adapter = submitToFormspree,
-    signal,
-  }: { endpoints?: Partial<Record<FormKey, string | undefined>>; adapter?: SubmissionAdapter; signal?: AbortSignal } = {},
-): Promise<SubmissionResult> {
-  const endpoint = endpoints[form];
-  if (!endpoint) return { status: "not-configured" };
-  return adapter(endpoint, payload, { signal });
+export async function submitForm(form: FormKey, payload: SubmissionPayload): Promise<SubmissionResult> {
+  void form;
+  void payload;
+  await new Promise((resolve) => setTimeout(resolve, PLACEHOLDER_DELAY_MS));
+  return { status: "not-connected" };
 }

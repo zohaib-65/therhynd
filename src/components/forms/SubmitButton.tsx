@@ -4,6 +4,7 @@ import { LoaderCircle } from "lucide-react";
 import type { ComponentProps } from "react";
 
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 type SubmitButtonProps = Pick<ComponentProps<typeof Button>, "variant" | "size" | "className"> & {
   pending: boolean;
@@ -23,7 +24,7 @@ export function SubmitButton({ pending, children, variant = "solid", size = "for
       size={size}
       aria-disabled={pending || undefined}
       onClick={(event) => pending && event.preventDefault()}
-      className={className}
+      className={cn("gap-2", className)}
     >
       {pending && <LoaderCircle aria-hidden="true" className="size-4 animate-spin" />}
       {children}

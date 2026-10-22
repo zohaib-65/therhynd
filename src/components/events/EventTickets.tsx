@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 
 import { eventTicketsSchema, MAX_TICKETS, type EventTicketsFormData, type EventTicketsFormInput } from "@/components/forms/event-tickets/schema";
 import { LIMITS } from "@/components/forms/fields";
-import { FormStatus } from "@/components/forms/FormStatus";
 import { enquiryMessages } from "@/components/forms/status-messages";
 import { SubmitButton } from "@/components/forms/SubmitButton";
 import { TextareaField } from "@/components/forms/TextareaField";
@@ -69,8 +68,13 @@ export function EventTickets({ title, date, tickets }: EventTicketsProps) {
     setValue("quantity", String(count));
   }, [selection, count, setValue]);
 
-  const { status, result, onSubmit, isSubmitting } = useFormSubmission("eventTickets", methods, {
+  const { onSubmit, isSubmitting } = useFormSubmission("eventTickets", methods, {
     toPayload: (data) => ({ _subject: `Ticket request: ${title}, ${date}`, event: title, eventDate: date, total: money(total), ...data }),
+    messages: enquiryMessages({
+      noun: "ticket request",
+      email: site.emails.cafe,
+      success: `Thank you. Your ticket request for ${title} (${date}) has been received and is awaiting confirmation. The team will contact you to confirm and arrange payment; no tickets are reserved until they do.`,
+    }),
   });
 
   const choose = (index: number, value: number) => {
@@ -220,17 +224,6 @@ export function EventTickets({ title, date, tickets }: EventTicketsProps) {
             Request tickets
           </SubmitButton>
         </div>
-        <FormStatus
-          className="sm:col-span-2"
-          status={status}
-          detail={result?.status === "error" ? result.message : undefined}
-          messages={enquiryMessages({
-            noun: "ticket request",
-            email: site.emails.cafe,
-            success: `Thank you. Your ticket request for ${title} (${date}) has been received and is awaiting confirmation. The team will contact you to confirm and arrange payment; no tickets are reserved until they do.`,
-            result,
-          })}
-        />
       </form>
     </div>
   );

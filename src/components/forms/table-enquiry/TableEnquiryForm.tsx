@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useId } from "react";
 import { useForm } from "react-hook-form";
 
-import { FormStatus } from "@/components/forms/FormStatus";
 import { SelectField } from "@/components/forms/SelectField";
 import { SubmitButton } from "@/components/forms/SubmitButton";
 import { TextareaField } from "@/components/forms/TextareaField";
@@ -38,8 +37,14 @@ export function TableEnquiryForm() {
     mode: "onTouched",
   });
   const { register, formState } = methods;
-  const { status, result, onSubmit, isSubmitting } = useFormSubmission("tableEnquiry", methods, {
+  const { onSubmit, isSubmitting } = useFormSubmission("tableEnquiry", methods, {
     toPayload: (data) => ({ _subject: "Table request for the café", ...data }),
+    messages: enquiryMessages({
+      noun: "table request",
+      email: site.emails.cafe,
+      phone: false,
+      success: "Thank you. Your table request has been received and is awaiting confirmation from the café. It is not a confirmed booking until they confirm it.",
+    }),
   });
 
   return (
@@ -65,18 +70,6 @@ export function TableEnquiryForm() {
           Send table request
         </SubmitButton>
       </div>
-      <FormStatus
-        className="md:col-span-3"
-        status={status}
-        detail={result?.status === "error" ? result.message : undefined}
-        messages={enquiryMessages({
-          noun: "table request",
-          email: site.emails.cafe,
-          phone: false,
-          success: "Thank you. Your table request has been received and is awaiting confirmation from the café. It is not a confirmed booking until they confirm it.",
-          result,
-        })}
-      />
     </form>
   );
 }
